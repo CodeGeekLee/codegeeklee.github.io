@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>码出高效</title>
+  
+  <subtitle>lixiaoshuang</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://godweiyang.com/"/>
+  <updated>2019-10-31T07:50:58.321Z</updated>
+  <id>https://godweiyang.com/</id>
+  
+  <author>
+    <name>李晓双</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「Java8系列」神秘的Lambda</title>
+    <link href="https://godweiyang.com/2019/10/31/java8-xi-lie-shen-mi-de-lambda/"/>
+    <id>https://godweiyang.com/2019/10/31/java8-xi-lie-shen-mi-de-lambda/</id>
+    <published>2019-10-31T07:46:29.000Z</published>
+    <updated>2019-10-31T07:50:58.321Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;接触背景&quot;&gt;&lt;a href=&quot;#接触背景&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="https://godweiyang.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Java" scheme="https://godweiyang.com/tags/Java/"/>
+    
+      <category term="Java8" scheme="https://godweiyang.com/tags/Java8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>「Go学习笔记」1.初识Go</title>
+    <link href="https://godweiyang.com/2019/10/30/go-xue-xi-bi-ji-1-chu-shi-go/"/>
+    <id>https://godweiyang.com/2019/10/30/go-xue-xi-bi-ji-1-chu-shi-go/</id>
+    <published>2019-10-30T07:36:07.000Z</published>
+    <updated>2019-10-31T07:39:58.661Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="https://godweiyang.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="GO" scheme="https://godweiyang.com/tags/GO/"/>
+    
+  </entry>
+  
+</feed>
