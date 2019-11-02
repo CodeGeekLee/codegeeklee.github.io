@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://godweiyang.com/"/>
-  <updated>2019-11-01T03:14:43.876Z</updated>
+  <updated>2019-11-02T02:43:49.784Z</updated>
   <id>https://godweiyang.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「Go学习笔记」2.Go语言由什么组成？</title>
+    <link href="https://godweiyang.com/2019/11/02/go-xue-xi-bi-ji-2-go-yu-yan-you-shi-me-zu-cheng/"/>
+    <id>https://godweiyang.com/2019/11/02/go-xue-xi-bi-ji-2-go-yu-yan-you-shi-me-zu-cheng/</id>
+    <published>2019-11-02T02:41:58.000Z</published>
+    <updated>2019-11-02T02:43:49.784Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h3 id=&quot;标识符&quot;&gt;&lt;a href=&quot;#标识符&quot; class=&quot;headerlink&quot;
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="https://godweiyang.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Go" scheme="https://godweiyang.com/tags/Go/"/>
+    
+  </entry>
   
   <entry>
     <title>JUnit4教程+实践</title>
@@ -78,7 +104,7 @@
     <link href="https://godweiyang.com/2019/10/30/go-xue-xi-bi-ji-1-chu-shi-go/"/>
     <id>https://godweiyang.com/2019/10/30/go-xue-xi-bi-ji-1-chu-shi-go/</id>
     <published>2019-10-30T07:36:07.000Z</published>
-    <updated>2019-10-31T07:39:58.661Z</updated>
+    <updated>2019-11-02T02:43:49.780Z</updated>
     
     <summary type="html">
     
