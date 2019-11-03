@@ -4,17 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="JUnit4教程+实践, Java Go lixiaoshuang 后端 MySql Redis Spring SpringBoot SpringCloud MQ">
+    <meta name="keywords" content="「Java8系列」神奇的函数式接口, Java Go lixiaoshuang 后端 MySql Redis Spring SpringBoot SpringCloud MQ">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
     <meta name="360-site-verification" content>
-    <meta name="description" content="
-一、什么是JUnit？JUnit是Java编程语言的单元测试框架，用于编写和可重复运行的自动化测试。
-二、JUnit特点：
-JUnit 是一个开放的资源框架，用于编写和运行测试。 
-提供注解来识别测试方法。
-提供断言来测试预期结果。 
-J">
+    <meta name="description" content="前言在上一篇Lambda的讲解中我们就提到过函数式接口，比如：Consumer&amp;lt;String&amp;gt; consumer = (s) -&amp;gt; System.out.println(s);其中Consumer就是一个函数式接口。这里是">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +16,7 @@ J">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>JUnit4教程+实践 | 码出高效</title>
+    <title>「Java8系列」神奇的函数式接口 | 码出高效</title>
     <link rel="icon" type="image/png" href="/blogicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -310,13 +304,13 @@ J">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://www.admfactory.com/images/logos/junit-400@2x.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://img.ctolib.com/uploadImg/20190422/20190422084602_571.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        JUnit4教程+实践
+                        「Java8系列」神奇的函数式接口
                     </div>
                 </div>
             </div>
@@ -427,12 +421,12 @@ J">
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/JUnit4/" target="_blank">
-                            <span class="chip bg-color">JUnit4</span>
+                        <a href="/tags/Java/" target="_blank">
+                            <span class="chip bg-color">Java</span>
                         </a>
                         
-                        <a href="/tags/单元测试/" target="_blank">
-                            <span class="chip bg-color">单元测试</span>
+                        <a href="/tags/Java8/" target="_blank">
+                            <span class="chip bg-color">Java8</span>
                         </a>
                         
                     </div>
@@ -443,8 +437,8 @@ J">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/测试/" class="post-category" target="_blank">
-                            测试
+                        <a href="/categories/后端/" class="post-category" target="_blank">
+                            后端
                         </a>
                         
                     </div>
@@ -455,7 +449,7 @@ J">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-01
+                    2019-11-03
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -469,14 +463,14 @@ J">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    9 分
                 </div>
                 
                 
@@ -492,371 +486,134 @@ J">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="junit.jpg" alt></p>
-<h4 id="一、什么是JUnit？"><a href="#一、什么是JUnit？" class="headerlink" title="一、什么是JUnit？"></a>一、什么是JUnit？</h4><p>JUnit是Java编程语言的单元测试框架，用于编写和可重复运行的自动化测试。</p>
-<h4 id="二、JUnit特点："><a href="#二、JUnit特点：" class="headerlink" title="二、JUnit特点："></a>二、JUnit特点：</h4><ul>
-<li>JUnit 是一个开放的资源框架，用于编写和运行测试。 </li>
-<li>提供注解来识别测试方法。</li>
-<li>提供断言来测试预期结果。 </li>
-<li>JUnit 测试允许你编写代码更快，并能提高质量。</li>
-<li>JUnit 优雅简洁。没那么复杂，花费时间较少。 </li>
-<li>JUnit测试可以自动运行并且检查自身结果并提供即时反馈。所以也没有必要人工梳理测试结果的报告。 </li>
-<li>JUnit测试可以被组织为测试套件，包含测试用例，甚至其他的测试套件。 </li>
-<li>JUnit在一个条中显示进度。如果运行良好则是绿色；如果运行失败，则变成红色。</li>
-</ul>
-<h4 id="三、JUnit注解"><a href="#三、JUnit注解" class="headerlink" title="三、JUnit注解"></a>三、JUnit注解</h4><table>
-<thead>
-<tr>
-<th>注解</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>@Test</td>
-<td>测试注解，标记一个方法可以作为一个测试用例 。</td>
-</tr>
-<tr>
-<td>@Before</td>
-<td>Before注解表示，该方法必须在类中的每个测试之前执行,以便执行某些必要的先决条件。</td>
-</tr>
-<tr>
-<td>@BeforeClass</td>
-<td>BeforeClass注解指出这是附着在静态方法必须执行一次并在类的所有测试之前，这种情况一般用于测试计算、共享配制方法(如数据库连接)。</td>
-</tr>
-<tr>
-<td>@After</td>
-<td>After注释表示，该方法在每项测试后执行（如执行每一个测试后重置某些变量，删除临时变量等）。</td>
-</tr>
-<tr>
-<td>@AfterClass</td>
-<td>当需要执行所有测试在JUnit测试用例类后执行，AlterClass注解可以使用以清理一些资源（如数据库连接），注意：方法必须为静态方法。</td>
-</tr>
-<tr>
-<td>@Ignore</td>
-<td>当想暂时禁用特定的测试执行可以使用这个注解，每个被注解为@Ignore的方法将不再执行</td>
-</tr>
-<tr>
-<td>@Runwith</td>
-<td>@Runwith就是放在测试类名之前，用来确定这个类怎么运行的。也可以不标注，会使用默认运行器。</td>
-</tr>
-<tr>
-<td>@Parameters</td>
-<td>用于使用参数化功能。</td>
-</tr>
-<tr>
-<td>@SuiteClasses</td>
-<td>用于套件测试</td>
-</tr>
-</tbody></table>
-<h4 id="四、JUnit断言"><a href="#四、JUnit断言" class="headerlink" title="四、JUnit断言"></a>四、JUnit断言</h4><table>
-<thead>
-<tr>
-<th>断言</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>void assertEquals([String message],expected value,actual value)</td>
-<td>断言两个值相等。值类型可能是int，short，long，byte，char，Object，第一个参数是一个可选字符串消息</td>
-</tr>
-<tr>
-<td>void assertTrue([String message],boolean condition)</td>
-<td>断言一个条件为真</td>
-</tr>
-<tr>
-<td>void assertFalse([String message],boolean condition)</td>
-<td>断言一个条件为假</td>
-</tr>
-<tr>
-<td>void assertNotNull([String message],java.lang.Object object)</td>
-<td>断言一个对象不为空（null）</td>
-</tr>
-<tr>
-<td>void assertNull([String message],java.lang.Object object)</td>
-<td>断言一个对象为空（null）</td>
-</tr>
-<tr>
-<td>void assertSame([String message],java.lang.Object expected,java.lang.Object actual)</td>
-<td>断言两个对象引用相同的对象</td>
-</tr>
-<tr>
-<td>void assertNotSame([String message],java.lang.Object unexpected,java.lang.Object actual)</td>
-<td>断言两个对象不是引用同一个对象</td>
-</tr>
-<tr>
-<td>void assertArrayEquals([String message],expectedArray,resultArray)</td>
-<td>断言预期数组和结果数组相等，数组类型可能是int，short，long，byte，char，Object</td>
-</tr>
-</tbody></table>
-<p>让我们看下使用断言的例子。<br>AssertionTest.java</p>
-<pre><code>public class AssertionTest {
-
-    @Test
-    public void test() {
-        String obj1 = &quot;junit&quot;;
-        String obj2 = &quot;junit&quot;;
-        String obj3 = &quot;test&quot;;
-        String obj4 = &quot;test&quot;;
-        String obj5 = null;
-
-        int var1 = 1;
-        int var2 = 2;
-
-        int[] array1 = {1, 2, 3};
-        int[] array2 = {1, 2, 3};
-
-        Assert.assertEquals(obj1, obj2);
-
-        Assert.assertSame(obj3, obj4);
-        Assert.assertNotSame(obj2, obj4);
-
-        Assert.assertNotNull(obj1);
-        Assert.assertNull(obj5);
-
-        Assert.assertTrue(var1 &lt; var2);
-        Assert.assertFalse(var1 &gt; var2);
-
-        Assert.assertArrayEquals(array1, array2);
-
-    }
-}</code></pre><p>在以上类中我们可以看到，这些断言方法是可以工作的。  </p>
-<ul>
-<li>assertEquals() 如果比较的两个对象是相等的，此方法将正常返回；否则失败显示在JUnit的窗口测试将中止。  </li>
-<li>assertSame() 和 assertNotSame() 方法测试两个对象引用指向完全相同的对象。  </li>
-<li>assertNull() 和 assertNotNull() 方法测试一个变量是否为空或不为空(null)。  </li>
-<li>assertTrue() 和 assertFalse() 方法测试if条件或变量是true还是false。  </li>
-<li>assertArrayEquals() 将比较两个数组，如果它们相等，则该方法将继续进行不会发出错误。否则失败将显示在JUnit窗口和中止测试。</li>
-</ul>
-<h4 id="五、JUnit执行过程"><a href="#五、JUnit执行过程" class="headerlink" title="五、JUnit执行过程"></a>五、JUnit执行过程</h4><p>JuntiTest.java</p>
-<pre><code>public class JunitTest {
-
-    @BeforeClass
-    public static void beforeClass() {
-        System.out.println(&quot;in before class&quot;);
-    }
-
-    @AfterClass
-    public static void afterClass() {
-        System.out.println(&quot;in after class&quot;);
-    }
-
-    @Before
-    public void before() {
-        System.out.println(&quot;in before&quot;);
-    }
-
-    @After
-    public void after() {
-        System.out.println(&quot;in after&quot;);
-    }
-
-    @Test
-    public void testCase1() {
-        System.out.println(&quot;in test case 1&quot;);
-    }
-
-    @Test
-    public void testCase2() {
-        System.out.println(&quot;in test case 2&quot;);
-    }
-
-}</code></pre><p>通过idea执行整个测试类后，执行结果：</p>
-<pre><code>in before class
-in before
-in test case 1
-in after
-in before
-in test case 2
-in after
-in after class</code></pre><h4 id="六、忽略测试"><a href="#六、忽略测试" class="headerlink" title="六、忽略测试"></a>六、忽略测试</h4><ul>
-<li>一个带有@Ignore注解的测试方法不会被执行</li>
-<li>如果一个测试类带有@Ignore注解，则它的测试方法将不会被执行</li>
-</ul>
-<p>我们把刚才测试类中的testCase2()方法标记为@Ignore,</p>
-<pre><code>    @Ignore
-    @Test
-    public void testCase2() {
-        System.out.println(&quot;in test case 2&quot;);
-    }</code></pre><p>然后在执行测试类的时候就会忽视这个方法，结果为：</p>
-<pre><code>in before class
-in before
-in test case 1
-in after
-
-Test ignored.
-in after class</code></pre><h4 id="七、时间测试"><a href="#七、时间测试" class="headerlink" title="七、时间测试"></a>七、时间测试</h4><p>JUnit提供了一个暂停的方便选项，如果一个测试用例比起指定的毫秒数花费了更多的时间，那么JUnit将自动将它标记为失败，timeout参数和@Test注解一起使用，例如@Test(timeout=1000)。<br>继续使用刚才的例子，现在将testCase1的执行时间延长到5000毫秒，并加上时间参数,设置超时为1000毫秒，然后执行测试类</p>
-<pre><code>    @Test(timeout = 1000)
-    public void testCase1() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(5000);
-        System.out.println(&quot;in test case 1&quot;);
-    }</code></pre><p>testCase1被标记为失败，并且抛出异常，执行结果：</p>
-<pre><code>in before class
-in before
-in after
-
-org.junit.runners.model.TestTimedOutException: test timed out after 1000 milliseconds
-
-    at java.lang.Thread.sleep(Native Method)
-    at java.lang.Thread.sleep(Thread.java:340)
-    at java.util.concurrent.TimeUnit.sleep(TimeUnit.java:386)
-    at com.lxs.JUnit.JunitTest.testCase1(JunitTest.java:35)
-    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-    at java.lang.reflect.Method.invoke(Method.java:498)
-    at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-    at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-    at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-    at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-    at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
-    at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
-    at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-    at java.lang.Thread.run(Thread.java:748)
-
-in before
-in test case 2
-in after
-in after class</code></pre><h4 id="八、异常测试"><a href="#八、异常测试" class="headerlink" title="八、异常测试"></a>八、异常测试</h4><p>Junit 用代码处理提供了一个追踪异常的选项。你可以测试代码是否它抛出了想要得到的异常。expected 参数和 @Test 注释一起使用。现在让我们看看 @Test(expected)。新建测试方法testCase3()。</p>
-<pre><code>    @Test(expected = ArithmeticException.class)
-    public void testCase3() {
-        System.out.println(&quot;in test case 3&quot;);
-        int a = 0;
-        int b = 1 / a;
-    }</code></pre><p>单独执行testCase3()方法，由于得到了一个预期异常，所以测试通过，结果为</p>
-<pre><code>in before class
-in before
-in test case 3
-in after
-in after class</code></pre><p>如果没有得到预期异常：</p>
-<pre><code>in before class
-in before
-in test case 3
-in after
-
-java.lang.AssertionError: Expected exception: java.lang.ArithmeticException
-
-in after class</code></pre><h4 id="九、参数化测试"><a href="#九、参数化测试" class="headerlink" title="九、参数化测试"></a>九、参数化测试</h4><p>Junit 4 引入了一个新的功能参数化测试。参数化测试允许开发人员使用不同的值反复运行同     一个测试。你将遵循 5 个步骤来创建参数化测试：</p>
-<p> -为准备使用参数化测试的测试类指定特殊的运行器 org.junit.runners.Parameterized。</p>
-<ul>
-<li>为测试类声明几个变量，分别用于存放期望值和测试所用数据。</li>
-<li>为测试类声明一个带有参数的公共构造函数，并在其中为第二个环节中声明的几个变量赋值。</li>
-<li>为测试类声明一个使用注解 org.junit.runners.Parameterized.Parameters 修饰的，返回值为 java.util.Collection 的公共静态方法，并在此方法中初始化所有需要测试的参数对。</li>
-<li>编写测试方法，使用定义的变量作为参数进行测试。</li>
-</ul>
-<h6 id="什么是-RunWith"><a href="#什么是-RunWith" class="headerlink" title="什么是@RunWith?"></a>什么是@RunWith?</h6><p> 首先要分清几个概念：测试方法、测试类、测试集、测试运行器。</p>
-<ul>
-<li>其中测试方法就是用@Test注解的一些函数。</li>
-<li>测试类是包含一个或多个测试方法的一个**Test.java文件，</li>
-<li>测试集是一个suite，可能包含多个测试类。</li>
-<li>测试运行器则决定了用什么方式偏好去运行这些测试集/类/方法。</li>
-</ul>
-<p>而@Runwith就是放在测试类名之前，用来确定这个类怎么运行的。也可以不标注，会使用默认运行器。常见的运行器有：</p>
-<ul>
-<li>@RunWith(Parameterized.class) 参数化运行器，配合@Parameters使用JUnit的参数化功能</li>
-<li>@RunWith(Suite.class)<br>@SuiteClasses({ATest.class,BTest.class,CTest.class})<br>测试集运行器配合使用测试集功能</li>
-<li>@RunWith(JUnit4.class)，    junit4的默认运行器</li>
-<li>@RunWith(JUnit38ClassRunner.class)，用于兼容junit3.8的运行器</li>
-<li>一些其它运行器具备更多功能。例如@RunWith(SpringJUnit4ClassRunner.class)集成了spring的一些功能</li>
-</ul>
-<p>PrimeNumberCheckerTest.java</p>
-<pre><code>/**
- * 步骤一: 指定定参数运行器
- */
-@RunWith(Parameterized.class)
-public class PrimeNumberCheckerTest {
-
+                <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>在上一篇Lambda的讲解中我们就提到过函数式接口，比如：Consumer<code>&lt;String&gt;</code> consumer = (s) -&gt; System.out.println(s);其中Consumer就是一个函数式接口。这里是通过Lambda表达式创建了一个函数式接口的对象。如果不知道什么是Lambda，请看《<a href="https://juejin.im/post/5d2d15825188253d7201d297" target="_blank" rel="noopener">神秘的Lambda</a>》。</p>
+<h4 id="函数式接口是什么？"><a href="#函数式接口是什么？" class="headerlink" title="函数式接口是什么？"></a>函数式接口是什么？</h4><p>有且只有一个抽象方法的接口被称为函数式接口，函数式接口适用于函数式编程的场景，Lambda就是Java中函数式编程的体现，可以使用Lambda表达式创建一个函数式接口的对象，一定要确保接口中有且只有一个抽象方法，这样Lambda才能顺利的进行推导。</p>
+<h4 id="FunctionalInterface注解"><a href="#FunctionalInterface注解" class="headerlink" title="@FunctionalInterface注解"></a>@FunctionalInterface注解</h4><p>与@Override 注解的作用类似，Java 8中专门为函数式接口引入了一个新的注解：@FunctionalInterface 。该注解可用于一个接口的定义上,一旦使用该注解来定义接口，编译器将会强制检查该接口是否确实有且仅有一个抽象方法，否则将会报错。但是这个注解不是必须的，只要符合函数式接口的定义，那么这个接口就是函数式接口。</p>
+<h4 id="static方法和default方法"><a href="#static方法和default方法" class="headerlink" title="static方法和default方法"></a>static方法和default方法</h4><p>实在不知道该在哪介绍这两个方法了，所以就穿插在这里了。</p>
+<h5 id="static方法："><a href="#static方法：" class="headerlink" title="static方法："></a>static方法：</h5><p>java8中为接口新增了一项功能，定义一个或者多个静态方法。用法和普通的static方法一样,例如：</p>
+<pre><code>public interface Interface {
     /**
-     * 步骤二：声明变量
+     * 静态方法
      */
-    private Integer inputNumber;
-    private Boolean expectedResult;
-    private PrimeNumberChecker primeNumberChecker;
-
+    static void staticMethod() {
+        System.out.println(&quot;static method&quot;);
+    }
+}</code></pre><p><code>注意:实现接口的类或者子接口不会继承接口中的静态方法。</code></p>
+<h5 id="default方法："><a href="#default方法：" class="headerlink" title="default方法："></a>default方法：</h5><p>java8在接口中新增default方法，是为了在现有的类库中中新增功能而不影响他们的实现类，试想一下，如果不增加默认实现的话，接口的所有实现类都要实现一遍这个方法，这会出现兼容性问题，如果定义了默认实现的话，那么实现类直接调用就可以了，并不需要实现这个方法。default方法怎么定义？</p>
+<pre><code>public interface Interface {
     /**
-     * 步骤三：为测试类声明一个带有参数的公共构造函数，为变量赋值
+     * default方法
      */
-    public PrimeNumberCheckerTest(Integer inputNumber,
-                                  Boolean expectedResult) {
-        this.inputNumber = inputNumber;
-        this.expectedResult = expectedResult;
+    default void print() {
+        System.out.println(&quot;hello default&quot;);
+    }
+}</code></pre><p><code>注意：如果接口中的默认方法不能满足某个实现类需要，那么实现类可以覆盖默认方法。不用加default关键字，</code>例如：</p>
+<pre><code>public class InterfaceImpl implements Interface {
+    @Override
+    public  void print() {
+        System.out.println(&quot;hello default 2&quot;);
+    }
+}</code></pre><p>在函数式接口的定义中是只允许有一个抽象方法，但是可以有多个static方法和default方法。</p>
+<h4 id="自定义函数式接口"><a href="#自定义函数式接口" class="headerlink" title="自定义函数式接口"></a>自定义函数式接口</h4><p>按照下面的格式定义，你也能写出函数式接口：</p>
+<pre><code> @FunctionalInterface
+ 修饰符 interface 接口名称 {
+    返回值类型 方法名称(可选参数信息);
+    // 其他非抽象方法内容
+ }</code></pre><p>虽然@FunctionalInterface注解不是必须的，但是自定义函数式接口最好还是都加上，一是养成良好的编程习惯，二是防止他人修改，一看到这个注解就知道是函数式接口，避免他人往接口内添加抽象方法造成不必要的麻烦。</p>
+<pre><code>@FunctionalInterface
+public interface MyFunction {
+    void print(String s);
+}</code></pre><p>看上图是我自定义的一个函数式接口，那么这个接口的作用是什么呢？就是输出一串字符串，属于消费型接口，是模仿Consumer接口写的，只不过这个没有使用泛型，而是将参数具体类型化了，不知道Consumer没关系，下面会介绍到，其实java8中提供了很多常用的函数式接口，Consumer就是其中之一，一般情况下都不需要自己定义，直接使用就好了。那么怎么使用这个自定义的函数式接口呢？我们可以用函数式接口作为参数，调用时传递Lambda表达式。如果一个方法的参数是Lambda，那么这个参数的类型一定是函数式接口。例如：</p>
+<pre><code>public class MyFunctionTest {
+    public static void main(String[] args) {
+        String text = &quot;试试自定义函数好使不&quot;;
+        printString(text, System.out::print);
     }
 
-    /**
-     * 步骤四：为测试类声明一个使用注解 org.junit.runners.Parameterized.Parameters 修饰的，返回值为
-     * java.util.Collection 的公共静态方法，并在此方法中初始化所有需要测试的参数对
-     *   1）该方法必须由Parameters注解修饰 
-          2）该方法必须为public static的 
-          3）该方法必须返回Collection类型 
-          4）该方法的名字不做要求 
-          5）该方法没有参数 
-     */
-    @Parameterized.Parameters
-    public static Collection primeNumbers() {
-        return Arrays.asList(new Object[][]{
-                {2, true},
-                {6, false},
-                {19, true},
-                {22, false},
-                {23, true}
-        });
+    private static void printString(String text, MyFunction myFunction) {
+        myFunction.print(text);
     }
+}</code></pre><p>执行以后就会输出“试试自定义函数好使不”这句话，如果某天需求变了，我不想输出这句话了，想输出别的，那么直接替换text就好了。函数式编程是没有副作用的，最大的好处就是函数的内部是无状态的，既输入确定输出就确定。函数式编程还有更多好玩的套路，这就需要靠大家自己探索了。😝</p>
+<h4 id="常用函数式接口"><a href="#常用函数式接口" class="headerlink" title="常用函数式接口"></a>常用函数式接口</h4><h5 id="Consumer-lt-T-gt-：消费型接口"><a href="#Consumer-lt-T-gt-：消费型接口" class="headerlink" title="Consumer&lt;T&gt;：消费型接口"></a>Consumer<code>&lt;T&gt;</code>：消费型接口</h5><p><strong>抽象方法：</strong>  void accept(T t)，接收一个参数进行消费，但无需返回结果。</p>
+<p><strong>使用方式：</strong></p>
+<pre><code>  Consumer consumer = System.out::println;
+  consumer.accept(&quot;hello function&quot;);</code></pre><p><strong>默认方法：</strong> andThen(Consumer&lt;? super T&gt; after)，先消费然后在消费，先执行调用andThen接口的accept方法，然后在执行andThen方法参数after中的accept方法。</p>
+<p><strong>使用方式：</strong>        </p>
+<pre><code>  Consumer&lt;String&gt; consumer1 = s -&gt; System.out.print(&quot;车名：&quot;+s.split(&quot;,&quot;)[0]);
+  Consumer&lt;String&gt; consumer2 = s -&gt; System.out.println(&quot;--&gt;颜色：&quot;+s.split(&quot;,&quot;)[1]);
 
-    @Before
-    public void initialize() {
-        primeNumberChecker = new PrimeNumberChecker();
-    }
+  String[] strings = {&quot;保时捷,白色&quot;, &quot;法拉利,红色&quot;};
+  for (String string : strings) {
+     consumer1.andThen(consumer2).accept(string);
+  }</code></pre><p><strong>输出：</strong><br>车名：保时捷–&gt;颜色：白色<br>车名：法拉利–&gt;颜色：红色</p>
+<h5 id="Supplier-lt-T-gt-供给型接口"><a href="#Supplier-lt-T-gt-供给型接口" class="headerlink" title="Supplier&lt;T&gt;: 供给型接口"></a>Supplier<code>&lt;T&gt;</code>: 供给型接口</h5><p><strong>抽象方法</strong>：T get()，无参数，有返回值。</p>
+<p><strong>使用方式：</strong></p>
+<pre><code> Supplier&lt;String&gt; supplier = () -&gt; &quot;我要变的很有钱&quot;;
+ System.out.println(supplier.get());</code></pre><p>最后输出就是“我要变得很有钱”，这类接口适合提供数据的场景。</p>
+<h5 id="Function-lt-T-R-gt-函数型接口"><a href="#Function-lt-T-R-gt-函数型接口" class="headerlink" title="Function&lt;T,R&gt;: 函数型接口"></a>Function<code>&lt;T,R&gt;</code>: 函数型接口</h5><p><strong>抽象方法：</strong> R apply(T t)，传入一个参数，返回想要的结果。</p>
+<p><strong>使用方式：</strong></p>
+<pre><code> Function&lt;Integer, Integer&gt; function1 = e -&gt; e * 6;
+ System.out.println(function1.apply(2));</code></pre><p>很简单的一个乘法例子，显然最后输出是12。</p>
+<p><strong>默认方法：</strong></p>
+<ul>
+<li>compose(Function&lt;? super V, ? extends T&gt; before)，先执行compose方法参数before中的apply方法，然后将执行结果传递给调用compose函数中的apply方法在执行。</li>
+</ul>
+<p><strong>使用方式：</strong></p>
+<pre><code> Function&lt;Integer, Integer&gt; function1 = e -&gt; e * 2;
+ Function&lt;Integer, Integer&gt; function2 = e -&gt; e * e;
 
-    /**
-     * 步骤五：编写测试方法，使用自定义变量进行测试
-     */
-    @Test
-    public void testPrimeNumberChecker() {
-        System.out.println(&quot;Parameterized Number is : &quot; + inputNumber);
-        Assert.assertEquals(expectedResult,
-                primeNumberChecker.validate(inputNumber));
-    }
-}</code></pre><p>PrimeNumberChecker.java</p>
-<pre><code>public class PrimeNumberChecker {
+ Integer apply2 = function1.compose(function2).apply(3);
+ System.out.println(apply2);</code></pre><p>还是举一个乘法的例子，compose方法执行流程是先执行function2的表达式也就是3<em>3=9，然后在将执行结果传给function1的表达式也就是9</em>2=18，所以最终的结果是18。</p>
+<ul>
+<li>andThen(Function&lt;? super R, ? extends V&gt; after)，先执行调用andThen函数的apply方法，然后在将执行结果传递给andThen方法after参数中的apply方法在执行。它和compose方法整好是相反的执行顺序。</li>
+</ul>
+<p><strong>使用方式：</strong></p>
+<pre><code> Function&lt;Integer, Integer&gt; function1 = e -&gt; e * 2;
+ Function&lt;Integer, Integer&gt; function2 = e -&gt; e * e;
 
-    public Boolean validate(final Integer parimeNumber) {
-        for (int i = 2; i &lt; (parimeNumber / 2); i++) {
-            if (parimeNumber % i == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-}</code></pre><p>JUnit会按照设置的参数多次执行，执行结果：</p>
-<pre><code>Parameterized Number is : 2
-Parameterized Number is : 6
-Parameterized Number is : 19
-Parameterized Number is : 22
-Parameterized Number is : 23</code></pre><h4 id="十、套件测试"><a href="#十、套件测试" class="headerlink" title="十、套件测试"></a>十、套件测试</h4><p>“套件测试”是指捆绑了几个单元测试用例并运行起来。在JUnit中，@RunWith 和 @Suite 这两个注解是用来运行套件测试。先来创建几个测试类</p>
-<pre><code>public class JunitTest1 {
+ Integer apply3 = function1.andThen(function2).apply(3);
+ System.out.println(apply3);</code></pre><p>这里我们和compose方法使用一个例子，所以是一模一样的例子，由于方法的不同，执行顺序也就不相同，那么结果是大大不同的。andThen方法是先执行function1表达式，也就是3<em>2=6，然后在执行function2表达式也就是6</em>6=36。结果就是36。<br><strong>静态方法：</strong>identity()，获取一个输入参数和返回结果相同的Function实例。</p>
+<p><strong>使用方式：</strong> </p>
+<pre><code> Function&lt;Integer, Integer&gt; identity = Function.identity();
+ Integer apply = identity.apply(3);
+ System.out.println(apply);</code></pre><p>平常没有遇到过使用这个方法的场景，总之这个方法的作用就是输入什么返回结果就是什么。</p>
+<h5 id="Predicate-lt-T-gt-：-断言型接口"><a href="#Predicate-lt-T-gt-：-断言型接口" class="headerlink" title="Predicate&lt;T&gt; ： 断言型接口"></a>Predicate<code>&lt;T&gt;</code> ： 断言型接口</h5><p><strong>抽象方法：</strong> boolean test(T t),传入一个参数，返回一个布尔值。</p>
+<p><strong>使用方式：</strong></p>
+<pre><code> Predicate&lt;Integer&gt; predicate = t -&gt; t &gt; 0;
+ boolean test = predicate.test(1);
+ System.out.println(test);</code></pre><p>当predicate函数调用test方法的时候，就会执行拿test方法的参数进行t -&gt; t &gt; 0的条件判断，1肯定是大于0的，最终结果为true。</p>
+<p><strong>默认方法：</strong></p>
+<ul>
+<li>and(Predicate&lt;? super T&gt; other)，相当于逻辑运算符中的&amp;&amp;，当两个Predicate函数的返回结果都为true时才返回true。</li>
+</ul>
+<p><strong>使用方式：</strong></p>
+<pre><code> Predicate&lt;String&gt; predicate1 = s -&gt; s.length() &gt; 0;
+ Predicate&lt;String&gt; predicate2 = Objects::nonNull;
+ boolean test = predicate1.and(predicate2).test(&quot;&amp;&amp;测试&quot;);
+ System.out.println(test);</code></pre><ul>
+<li>or(Predicate&lt;? super T&gt; other) ,相当于逻辑运算符中的||，当两个Predicate函数的返回结果有一个为true则返回true，否则返回false。</li>
+</ul>
+<p><strong>使用方式：</strong></p>
+<pre><code> Predicate&lt;String&gt; predicate1 = s -&gt; false;
+ Predicate&lt;String&gt; predicate2 = Objects::nonNull;
+ boolean test = predicate1.and(predicate2).test(&quot;||测试&quot;);
+ System.out.println(test);</code></pre><ul>
+<li>negate()，这个方法的意思就是取反。</li>
+</ul>
+<p><strong>使用方式：</strong></p>
+<pre><code> Predicate&lt;String&gt; predicate = s -&gt; s.length() &gt; 0;
+ boolean result = predicate.negate().test(&quot;取反&quot;);
+ System.out.println(result);</code></pre><p>很明显正常执行test方法的话应该为true，但是调用negate方法后就返回为false了。<br><strong>静态方法：</strong>isEqual(Object targetRef)，对当前操作进行”=”操作,即取等操作,可以理解为 A == B。</p>
+<p><strong>使用方式:</strong></p>
+<pre><code> boolean test1 = Predicate.isEqual(&quot;test&quot;).test(&quot;test&quot;);
+ boolean test2 = Predicate.isEqual(&quot;test&quot;).test(&quot;equal&quot;);
+ System.out.println(test1);   //true
+ System.out.println(test2);   //false</code></pre><h4 id="其他函数式接口"><a href="#其他函数式接口" class="headerlink" title="其他函数式接口"></a>其他函数式接口</h4><h5 id="Bi类型接口"><a href="#Bi类型接口" class="headerlink" title="Bi类型接口"></a>Bi类型接口</h5><p>BiConsumer、BiFunction、BiPrediate 是 Consumer、Function、Predicate 的扩展，可以传入多个参数，没有 BiSupplier 是因为 Supplier 没有入参。</p>
+<h5 id="操作基本数据类型的接口"><a href="#操作基本数据类型的接口" class="headerlink" title="操作基本数据类型的接口"></a>操作基本数据类型的接口</h5><p>IntConsumer、IntFunction、IntPredicate、IntSupplier、LongConsumer、LongFunction、LongPredicate、LongSupplier、DoubleConsumer、DoubleFunction、DoublePredicate、DoubleSupplier。<br>其实常用的函数式接口就那四大接口Consumer、Function、Prediate、Supplier，其他的函数式接口就不一一列举了，有兴趣的可以去java.util.function这个包下详细的看。</p>
+<blockquote>
+<p>感谢大家的观看，希望多多关注哦。 如有错误，烦请指正。</p>
+</blockquote>
 
-    @Test
-    public void printMessage(){
-        System.out.println(&quot;in JunitTest1&quot;);
-    }
-}</code></pre><pre><code>public class JunitTest2 {
-
-    @Test
-    public void printMessage(){
-        System.out.println(&quot;in JunitTest2&quot;);
-    }
-}</code></pre><pre><code>@RunWith(Suite.class)
-@Suite.SuiteClasses({
-        /**
-         * 此处类的配置顺序会影响执行顺序
-         */
-        JunitTest1.class,
-        JunitTest2.class
-})
-public class JunitSuite {
-
-}</code></pre><p>执行JunitSuite测试类，执行结果：</p>
-<pre><code>in JunitTest1
-in JunitTest2</code></pre>
             </div>
             <hr />
 
@@ -1014,9 +771,9 @@ in JunitTest2</code></pre>
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《JUnit4教程+实践》
+                    《「Java8系列」神奇的函数式接口》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/01/junit4-jiao-cheng-shi-jian/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/03/java8-xi-lie-shen-qi-de-han-shu-shi-jie-kou/" property="cc:attributionName"
                rel="cc:attributionURL">
                 李晓双
             </a> 采用
@@ -1057,7 +814,7 @@ in JunitTest2</code></pre>
         repo: 'codeefficient.github.io',
         owner: 'Codeefficient',
         admin: "Codeefficient",
-        id: '2019/11/01/junit4-jiao-cheng-shi-jian/',
+        id: '2019/11/03/java8-xi-lie-shen-qi-de-han-shu-shi-jie-kou/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1340,9 +1097,63 @@ in JunitTest2</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2019/11/03/java8-xi-lie-shen-qi-de-han-shu-shi-jie-kou/">
+                    <div class="card-image">
+                        
+                        <img src="https://img.ctolib.com/uploadImg/20190422/20190422084602_571.jpg" class="responsive-img" alt="「Java8系列」神奇的函数式接口">
+                        
+                        <span class="card-title">「Java8系列」神奇的函数式接口</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前言在上一篇Lambda的讲解中我们就提到过函数式接口，比如：Consumer&lt;String&gt; consumer = (s) -&gt; System.out.println(s);其中Consumer就是一个函数式接口。这里是
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/后端/" class="post-category" target="_blank">
+                                    后端
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/Java8/" target="_blank">
+                        <span class="chip bg-color">Java8</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2019/11/02/go-xue-xi-bi-ji-2-go-yu-yan-you-shi-me-zu-cheng/">
                     <div class="card-image">
@@ -1359,9 +1170,9 @@ in JunitTest2</code></pre>
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-02
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1379,58 +1190,6 @@ in JunitTest2</code></pre>
                     
                     <a href="/tags/Go/" target="_blank">
                         <span class="chip bg-color">Go</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2019/10/31/java8-xi-lie-shen-mi-de-lambda/">
-                    <div class="card-image">
-                        
-                        <img src="https://img.ctolib.com/uploadImg/20190422/20190422084602_571.jpg" class="responsive-img" alt="「Java8系列」神秘的Lambda">
-                        
-                        <span class="card-title">「Java8系列」神秘的Lambda</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            接触背景第一次接触lambda表达式时，感觉这个东西挺神奇的（高逼格），一个（）加-&gt;就能传递一段代码，当时公司项目中接手同事的代码，自己也对java8的特性不了解，看的也是一头雾水，之后就赶快看了下《java8实战》这本书，决定写一
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-31
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fa fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/后端/" class="post-category" target="_blank">
-                                    后端
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Java/" target="_blank">
-                        <span class="chip bg-color">Java</span>
-                    </a>
-                    
-                    <a href="/tags/Java8/" target="_blank">
-                        <span class="chip bg-color">Java8</span>
                     </a>
                     
                 </div>

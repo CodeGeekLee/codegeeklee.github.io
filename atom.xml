@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://godweiyang.com/"/>
-  <updated>2019-11-02T02:43:49.784Z</updated>
+  <updated>2019-11-03T04:00:08.017Z</updated>
   <id>https://godweiyang.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「Java8系列」神奇的函数式接口</title>
+    <link href="https://godweiyang.com/2019/11/03/java8-xi-lie-shen-qi-de-han-shu-shi-jie-kou/"/>
+    <id>https://godweiyang.com/2019/11/03/java8-xi-lie-shen-qi-de-han-shu-shi-jie-kou/</id>
+    <published>2019-11-03T03:57:47.000Z</published>
+    <updated>2019-11-03T04:00:08.017Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;在上一篇Lambda的讲解中我们就提到过函数式接口，比如：Consumer&lt;code&gt;&amp;lt;String&amp;gt;&lt;/code&gt;
+        
+      
+    
+    </summary>
+    
+      <category term="后端" scheme="https://godweiyang.com/categories/%E5%90%8E%E7%AB%AF/"/>
+    
+    
+      <category term="Java" scheme="https://godweiyang.com/tags/Java/"/>
+    
+      <category term="Java8" scheme="https://godweiyang.com/tags/Java8/"/>
+    
+  </entry>
   
   <entry>
     <title>「Go学习笔记」2.Go语言由什么组成？</title>
