@@ -4,17 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="JUnit4教程+实践, Java Go lixiaoshuang 后端 MySql Redis Spring SpringBoot SpringCloud MQ">
+    <meta name="keywords" content="「Java8系列」流式编程Stream, Java Go lixiaoshuang 后端 MySql Redis Spring SpringBoot SpringCloud MQ">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
     <meta name="360-site-verification" content>
-    <meta name="description" content="
-一、什么是JUnit？JUnit是Java编程语言的单元测试框架，用于编写和可重复运行的自动化测试。
-二、JUnit特点：
-JUnit 是一个开放的资源框架，用于编写和运行测试。 
-提供注解来识别测试方法。
-提供断言来测试预期结果。 
-J">
+    <meta name="description" content="前言「Java8系列」神秘的Lambda「Java8系列」神奇的函数式接口继上两篇之后，本文已经java8系列的第三篇了。本篇文章比较长，但我希望大家都能认真读完。读不完可以先收藏，在找时间读。没看过前两篇的可以点上边的链接看看，前两篇文章">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -22,7 +16,7 @@ J">
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>JUnit4教程+实践 | 码出高效</title>
+    <title>「Java8系列」流式编程Stream | 码出高效</title>
     <link rel="icon" type="image/png" href="/blogicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -310,13 +304,13 @@ J">
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://www.admfactory.com/images/logos/junit-400@2x.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://img.ctolib.com/uploadImg/20190422/20190422084602_571.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        JUnit4教程+实践
+                        「Java8系列」流式编程Stream
                     </div>
                 </div>
             </div>
@@ -427,12 +421,12 @@ J">
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/JUnit4/" target="_blank">
-                            <span class="chip bg-color">JUnit4</span>
+                        <a href="/tags/Java/" target="_blank">
+                            <span class="chip bg-color">Java</span>
                         </a>
                         
-                        <a href="/tags/单元测试/" target="_blank">
-                            <span class="chip bg-color">单元测试</span>
+                        <a href="/tags/Java8/" target="_blank">
+                            <span class="chip bg-color">Java8</span>
                         </a>
                         
                     </div>
@@ -443,8 +437,8 @@ J">
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/测试/" class="post-category" target="_blank">
-                            测试
+                        <a href="/categories/后端/" class="post-category" target="_blank">
+                            后端
                         </a>
                         
                     </div>
@@ -455,7 +449,7 @@ J">
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-01
+                    2019-11-04
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -469,7 +463,7 @@ J">
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.6k
+                    2.8k
                 </div>
                 
 
@@ -492,371 +486,111 @@ J">
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p><img src="junit.jpg" alt></p>
-<h4 id="一、什么是JUnit？"><a href="#一、什么是JUnit？" class="headerlink" title="一、什么是JUnit？"></a>一、什么是JUnit？</h4><p>JUnit是Java编程语言的单元测试框架，用于编写和可重复运行的自动化测试。</p>
-<h4 id="二、JUnit特点："><a href="#二、JUnit特点：" class="headerlink" title="二、JUnit特点："></a>二、JUnit特点：</h4><ul>
-<li>JUnit 是一个开放的资源框架，用于编写和运行测试。 </li>
-<li>提供注解来识别测试方法。</li>
-<li>提供断言来测试预期结果。 </li>
-<li>JUnit 测试允许你编写代码更快，并能提高质量。</li>
-<li>JUnit 优雅简洁。没那么复杂，花费时间较少。 </li>
-<li>JUnit测试可以自动运行并且检查自身结果并提供即时反馈。所以也没有必要人工梳理测试结果的报告。 </li>
-<li>JUnit测试可以被组织为测试套件，包含测试用例，甚至其他的测试套件。 </li>
-<li>JUnit在一个条中显示进度。如果运行良好则是绿色；如果运行失败，则变成红色。</li>
-</ul>
-<h4 id="三、JUnit注解"><a href="#三、JUnit注解" class="headerlink" title="三、JUnit注解"></a>三、JUnit注解</h4><table>
-<thead>
-<tr>
-<th>注解</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>@Test</td>
-<td>测试注解，标记一个方法可以作为一个测试用例 。</td>
-</tr>
-<tr>
-<td>@Before</td>
-<td>Before注解表示，该方法必须在类中的每个测试之前执行,以便执行某些必要的先决条件。</td>
-</tr>
-<tr>
-<td>@BeforeClass</td>
-<td>BeforeClass注解指出这是附着在静态方法必须执行一次并在类的所有测试之前，这种情况一般用于测试计算、共享配制方法(如数据库连接)。</td>
-</tr>
-<tr>
-<td>@After</td>
-<td>After注释表示，该方法在每项测试后执行（如执行每一个测试后重置某些变量，删除临时变量等）。</td>
-</tr>
-<tr>
-<td>@AfterClass</td>
-<td>当需要执行所有测试在JUnit测试用例类后执行，AlterClass注解可以使用以清理一些资源（如数据库连接），注意：方法必须为静态方法。</td>
-</tr>
-<tr>
-<td>@Ignore</td>
-<td>当想暂时禁用特定的测试执行可以使用这个注解，每个被注解为@Ignore的方法将不再执行</td>
-</tr>
-<tr>
-<td>@Runwith</td>
-<td>@Runwith就是放在测试类名之前，用来确定这个类怎么运行的。也可以不标注，会使用默认运行器。</td>
-</tr>
-<tr>
-<td>@Parameters</td>
-<td>用于使用参数化功能。</td>
-</tr>
-<tr>
-<td>@SuiteClasses</td>
-<td>用于套件测试</td>
-</tr>
-</tbody></table>
-<h4 id="四、JUnit断言"><a href="#四、JUnit断言" class="headerlink" title="四、JUnit断言"></a>四、JUnit断言</h4><table>
-<thead>
-<tr>
-<th>断言</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>void assertEquals([String message],expected value,actual value)</td>
-<td>断言两个值相等。值类型可能是int，short，long，byte，char，Object，第一个参数是一个可选字符串消息</td>
-</tr>
-<tr>
-<td>void assertTrue([String message],boolean condition)</td>
-<td>断言一个条件为真</td>
-</tr>
-<tr>
-<td>void assertFalse([String message],boolean condition)</td>
-<td>断言一个条件为假</td>
-</tr>
-<tr>
-<td>void assertNotNull([String message],java.lang.Object object)</td>
-<td>断言一个对象不为空（null）</td>
-</tr>
-<tr>
-<td>void assertNull([String message],java.lang.Object object)</td>
-<td>断言一个对象为空（null）</td>
-</tr>
-<tr>
-<td>void assertSame([String message],java.lang.Object expected,java.lang.Object actual)</td>
-<td>断言两个对象引用相同的对象</td>
-</tr>
-<tr>
-<td>void assertNotSame([String message],java.lang.Object unexpected,java.lang.Object actual)</td>
-<td>断言两个对象不是引用同一个对象</td>
-</tr>
-<tr>
-<td>void assertArrayEquals([String message],expectedArray,resultArray)</td>
-<td>断言预期数组和结果数组相等，数组类型可能是int，short，long，byte，char，Object</td>
-</tr>
-</tbody></table>
-<p>让我们看下使用断言的例子。<br>AssertionTest.java</p>
-<pre><code>public class AssertionTest {
-
-    @Test
-    public void test() {
-        String obj1 = &quot;junit&quot;;
-        String obj2 = &quot;junit&quot;;
-        String obj3 = &quot;test&quot;;
-        String obj4 = &quot;test&quot;;
-        String obj5 = null;
-
-        int var1 = 1;
-        int var2 = 2;
-
-        int[] array1 = {1, 2, 3};
-        int[] array2 = {1, 2, 3};
-
-        Assert.assertEquals(obj1, obj2);
-
-        Assert.assertSame(obj3, obj4);
-        Assert.assertNotSame(obj2, obj4);
-
-        Assert.assertNotNull(obj1);
-        Assert.assertNull(obj5);
-
-        Assert.assertTrue(var1 &lt; var2);
-        Assert.assertFalse(var1 &gt; var2);
-
-        Assert.assertArrayEquals(array1, array2);
-
-    }
-}</code></pre><p>在以上类中我们可以看到，这些断言方法是可以工作的。  </p>
+                <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p><a href="https://juejin.im/post/5d2d15825188253d7201d297" target="_blank" rel="noopener">「Java8系列」神秘的Lambda</a><br><br><a href="https://juejin.im/post/5d2ff837f265da1bd424b710" target="_blank" rel="noopener">「Java8系列」神奇的函数式接口</a><br><br>继上两篇之后，本文已经java8系列的第三篇了。本篇文章比较长，但我希望大家都能认真读完。读不完可以先收藏，在找时间读。没看过前两篇的可以点上边的链接看看，前两篇文章算是对是用Stream铺垫的一点基础吧，不过不看也可以学会使用Stream，但看了会有助于更好的理解和使用。在没有深入了解之前，我以为Stream也是数据的载体，但后来发现并不是。那么它到底是什么？听我慢慢道来。</p>
+<h4 id="什么是Stream？"><a href="#什么是Stream？" class="headerlink" title="什么是Stream？"></a>什么是Stream？</h4><p>Stream它并不是一个容器，它只是对容器的功能进行了增强，添加了很多便利的操作,例如查找、过滤、分组、排序等一系列的操作。并且有串行、并行两种执行模式，并行模式充分的利用了多核处理器的优势，使用fork/join框架进行了任务拆分，同时提高了执行速度。简而言之，Stream就是提供了一种高效且易于使用的处理数据的方式。</p>
 <ul>
-<li>assertEquals() 如果比较的两个对象是相等的，此方法将正常返回；否则失败显示在JUnit的窗口测试将中止。  </li>
-<li>assertSame() 和 assertNotSame() 方法测试两个对象引用指向完全相同的对象。  </li>
-<li>assertNull() 和 assertNotNull() 方法测试一个变量是否为空或不为空(null)。  </li>
-<li>assertTrue() 和 assertFalse() 方法测试if条件或变量是true还是false。  </li>
-<li>assertArrayEquals() 将比较两个数组，如果它们相等，则该方法将继续进行不会发出错误。否则失败将显示在JUnit窗口和中止测试。</li>
+<li>特点：</li>
 </ul>
-<h4 id="五、JUnit执行过程"><a href="#五、JUnit执行过程" class="headerlink" title="五、JUnit执行过程"></a>五、JUnit执行过程</h4><p>JuntiTest.java</p>
-<pre><code>public class JunitTest {
-
-    @BeforeClass
-    public static void beforeClass() {
-        System.out.println(&quot;in before class&quot;);
-    }
-
-    @AfterClass
-    public static void afterClass() {
-        System.out.println(&quot;in after class&quot;);
-    }
-
-    @Before
-    public void before() {
-        System.out.println(&quot;in before&quot;);
-    }
-
-    @After
-    public void after() {
-        System.out.println(&quot;in after&quot;);
-    }
-
-    @Test
-    public void testCase1() {
-        System.out.println(&quot;in test case 1&quot;);
-    }
-
-    @Test
-    public void testCase2() {
-        System.out.println(&quot;in test case 2&quot;);
-    }
-
-}</code></pre><p>通过idea执行整个测试类后，执行结果：</p>
-<pre><code>in before class
-in before
-in test case 1
-in after
-in before
-in test case 2
-in after
-in after class</code></pre><h4 id="六、忽略测试"><a href="#六、忽略测试" class="headerlink" title="六、忽略测试"></a>六、忽略测试</h4><ul>
-<li>一个带有@Ignore注解的测试方法不会被执行</li>
-<li>如果一个测试类带有@Ignore注解，则它的测试方法将不会被执行</li>
-</ul>
-<p>我们把刚才测试类中的testCase2()方法标记为@Ignore,</p>
-<pre><code>    @Ignore
-    @Test
-    public void testCase2() {
-        System.out.println(&quot;in test case 2&quot;);
-    }</code></pre><p>然后在执行测试类的时候就会忽视这个方法，结果为：</p>
-<pre><code>in before class
-in before
-in test case 1
-in after
-
-Test ignored.
-in after class</code></pre><h4 id="七、时间测试"><a href="#七、时间测试" class="headerlink" title="七、时间测试"></a>七、时间测试</h4><p>JUnit提供了一个暂停的方便选项，如果一个测试用例比起指定的毫秒数花费了更多的时间，那么JUnit将自动将它标记为失败，timeout参数和@Test注解一起使用，例如@Test(timeout=1000)。<br>继续使用刚才的例子，现在将testCase1的执行时间延长到5000毫秒，并加上时间参数,设置超时为1000毫秒，然后执行测试类</p>
-<pre><code>    @Test(timeout = 1000)
-    public void testCase1() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(5000);
-        System.out.println(&quot;in test case 1&quot;);
-    }</code></pre><p>testCase1被标记为失败，并且抛出异常，执行结果：</p>
-<pre><code>in before class
-in before
-in after
-
-org.junit.runners.model.TestTimedOutException: test timed out after 1000 milliseconds
-
-    at java.lang.Thread.sleep(Native Method)
-    at java.lang.Thread.sleep(Thread.java:340)
-    at java.util.concurrent.TimeUnit.sleep(TimeUnit.java:386)
-    at com.lxs.JUnit.JunitTest.testCase1(JunitTest.java:35)
-    at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-    at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-    at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-    at java.lang.reflect.Method.invoke(Method.java:498)
-    at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50)
-    at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
-    at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47)
-    at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
-    at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:298)
-    at org.junit.internal.runners.statements.FailOnTimeout$CallableStatement.call(FailOnTimeout.java:292)
-    at java.util.concurrent.FutureTask.run(FutureTask.java:266)
-    at java.lang.Thread.run(Thread.java:748)
-
-in before
-in test case 2
-in after
-in after class</code></pre><h4 id="八、异常测试"><a href="#八、异常测试" class="headerlink" title="八、异常测试"></a>八、异常测试</h4><p>Junit 用代码处理提供了一个追踪异常的选项。你可以测试代码是否它抛出了想要得到的异常。expected 参数和 @Test 注释一起使用。现在让我们看看 @Test(expected)。新建测试方法testCase3()。</p>
-<pre><code>    @Test(expected = ArithmeticException.class)
-    public void testCase3() {
-        System.out.println(&quot;in test case 3&quot;);
-        int a = 0;
-        int b = 1 / a;
-    }</code></pre><p>单独执行testCase3()方法，由于得到了一个预期异常，所以测试通过，结果为</p>
-<pre><code>in before class
-in before
-in test case 3
-in after
-in after class</code></pre><p>如果没有得到预期异常：</p>
-<pre><code>in before class
-in before
-in test case 3
-in after
-
-java.lang.AssertionError: Expected exception: java.lang.ArithmeticException
-
-in after class</code></pre><h4 id="九、参数化测试"><a href="#九、参数化测试" class="headerlink" title="九、参数化测试"></a>九、参数化测试</h4><p>Junit 4 引入了一个新的功能参数化测试。参数化测试允许开发人员使用不同的值反复运行同     一个测试。你将遵循 5 个步骤来创建参数化测试：</p>
-<p> -为准备使用参数化测试的测试类指定特殊的运行器 org.junit.runners.Parameterized。</p>
+<ol>
+<li>Stream自己不会存储元素。 </li>
+<li>Stream的操作不会改变源对象。相反，他们会返回一个持有结果的新Stream。</li>
+<li>Stream 操作是延迟执行的。它会等到需要结果的时候才执行。也就是执行终端操作的时候。</li>
+</ol>
 <ul>
-<li>为测试类声明几个变量，分别用于存放期望值和测试所用数据。</li>
-<li>为测试类声明一个带有参数的公共构造函数，并在其中为第二个环节中声明的几个变量赋值。</li>
-<li>为测试类声明一个使用注解 org.junit.runners.Parameterized.Parameters 修饰的，返回值为 java.util.Collection 的公共静态方法，并在此方法中初始化所有需要测试的参数对。</li>
-<li>编写测试方法，使用定义的变量作为参数进行测试。</li>
+<li>图解：<br><img src="https://user-gold-cdn.xitu.io/2019/7/22/16c198ac61885693?w=1090&h=436&f=png&s=38873" alt="在这里插入图片描述"><br>一个Stream的操作就如上图，在一个管道内，分为三个步骤，第一步是创建Stream，从集合、数组中获取一个流，第二步是中间操作链，对数据进行处理。第三步是终端操作，用来执行中间操作链，返回结果。<h4 id="怎么创建Stream"><a href="#怎么创建Stream" class="headerlink" title="怎么创建Stream?"></a>怎么创建Stream?</h4></li>
+<li>由集合创建：<br>Java8 中的 Collection 接口被扩展，提供了两个获取流的方法,这两个方法是default方法，也就是说所有实现Collection接口的接口都不需要实现就可以直接使用：</li>
 </ul>
-<h6 id="什么是-RunWith"><a href="#什么是-RunWith" class="headerlink" title="什么是@RunWith?"></a>什么是@RunWith?</h6><p> 首先要分清几个概念：测试方法、测试类、测试集、测试运行器。</p>
+<ol>
+<li>default Stream<e> stream() : 返回一个顺序流。</e></li>
+<li>default Stream<e> parallelStream() : 返回一个并行流。<br><pre><code> 例如：
+     List&lt;Integer&gt; integerList = new ArrayList&lt;&gt;();
+     integerList.add(1);
+     integerList.add(2);
+     Stream&lt;Integer&gt; stream = integerList.stream();
+     Stream&lt;Integer&gt; stream1 = integerList.parallelStream();</code></pre></e></li>
+</ol>
 <ul>
-<li>其中测试方法就是用@Test注解的一些函数。</li>
-<li>测试类是包含一个或多个测试方法的一个**Test.java文件，</li>
-<li>测试集是一个suite，可能包含多个测试类。</li>
-<li>测试运行器则决定了用什么方式偏好去运行这些测试集/类/方法。</li>
+<li>由数组创建：<br>Java8 中的 Arrays 的静态方法 stream() 可以获取数组流:</li>
 </ul>
-<p>而@Runwith就是放在测试类名之前，用来确定这个类怎么运行的。也可以不标注，会使用默认运行器。常见的运行器有：</p>
+<ol>
+<li>static <t> Stream<t> stream(T[] array): 返回一个流</t></t></li>
+<li>重载形式，能够处理对应基本类型的数组:<br><br>public static IntStream stream(int[] array)<br><br>public static LongStream stream(long[] array)<br><br>public static DoubleStream stream(double[] array)<br><pre><code> 例如：
+     int[] intArray = {1,2,3};
+     IntStream stream = Arrays.stream(intArray);</code></pre></li>
+</ol>
 <ul>
-<li>@RunWith(Parameterized.class) 参数化运行器，配合@Parameters使用JUnit的参数化功能</li>
-<li>@RunWith(Suite.class)<br>@SuiteClasses({ATest.class,BTest.class,CTest.class})<br>测试集运行器配合使用测试集功能</li>
-<li>@RunWith(JUnit4.class)，    junit4的默认运行器</li>
-<li>@RunWith(JUnit38ClassRunner.class)，用于兼容junit3.8的运行器</li>
-<li>一些其它运行器具备更多功能。例如@RunWith(SpringJUnit4ClassRunner.class)集成了spring的一些功能</li>
+<li>由值创建:<br>可以使用静态方法 Stream.of(), 通过显示值 创建一个流。它可以接收任意数量的参数。</li>
 </ul>
-<p>PrimeNumberCheckerTest.java</p>
-<pre><code>/**
- * 步骤一: 指定定参数运行器
- */
-@RunWith(Parameterized.class)
-public class PrimeNumberCheckerTest {
+<ol>
+<li>public static<t> Stream<t> of(T… values) : 返回一个流。<br><pre><code> 例如：
+ Stream&lt;Integer&gt; integerStream = Stream.of(1, 2, 3, 4, 5, 6, 7, 8);</code></pre></t></t></li>
+</ol>
+<ul>
+<li>由函数创建：创建无限流<br>可以使用静态方法 Stream.iterate() 和 Stream.generate()创建无限流。</li>
+</ul>
+<ol>
+<li>迭代<br>public static<t> Stream<t> iterate(final T seed, final UnaryOperator<t> f)</t></t></t></li>
+<li>生成<br>public static<t> Stream<t> generate(Supplier<t> s) <pre><code> 例如：
+ Stream.generate(Math::random).limit(5).forEach(System.out::print); 
+ List&lt;Integer&gt; collect = Stream.iterate(0,i -&gt; i + 1).limit(5).collect(Collectors.toList());</code></pre><code>注意：使用无限流一定要配合limit截断，不然会无限制创建下去。</code><h4 id="Stream的中间操作"><a href="#Stream的中间操作" class="headerlink" title="Stream的中间操作"></a>Stream的中间操作</h4>如果Stream只有中间操作是不会执行的，当执行终端操作的时候才会执行中间操作，这种方式称为延迟加载或惰性求值。多个中间操作组成一个中间操作链，只有当执行终端操作的时候才会执行一遍中间操作链，具体是因为什么我们在后面再说明。下面看下Stream有哪些中间操作。</t></t></t></li>
+</ol>
+<ul>
+<li>Stream<code>&lt;T&gt;</code> distinct()：<br>去重，通过流所生成元素的 hashCode() 和 equals() 去除重复元素。<br><img src="https://user-gold-cdn.xitu.io/2019/7/22/16c1a26c389e630e?w=403&h=205&f=jpeg&s=30693" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ce3dc266d996?w=1464&h=1346&f=png&s=269768" alt></li>
+<li>Stream<code>&lt;T&gt;</code> filter(Predicate&lt;? super T&gt; predicate):<br>Predicate函数在上一篇当中我们已经讲过，它是断言型接口，所以filter方法中是接收一个和Predicate函数对应Lambda表达式，返回一个布尔值，从流中过滤某些元素。<br><img src="https://user-gold-cdn.xitu.io/2019/7/22/16c1a2418a587f98?w=403&h=206&f=jpeg&s=26361" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ce5ccf0970d0?w=1464&h=1310&f=png&s=263394" alt></li>
+<li>Stream<code>&lt;T&gt;</code> sorted(Comparator&lt;? super T&gt; comparator):<br>指定比较规则进行排序。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ce00179fc96a?w=1464&h=1310&f=png&s=264409" alt></li>
+<li>Stream<code>&lt;T&gt;</code> limit(long maxSize):<br>截断流，使其元素不超过给定数量。如果元素的个数小于maxSize，那就获取所有元素。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ccc8ee241e40?w=403&h=205&f=jpeg&s=30573" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1cf0a4636351b?w=1572&h=1346&f=png&s=290113" alt></li>
+<li>Stream<code>&lt;T&gt;</code> skip(long n):<br>跳过元素，返回一个扔掉了前 n 个元素的流。若流中元素不足 n 个，则返回一个空流。与 limit(n) 互补。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ccc8eff0c379?w=403&h=205&f=jpeg&s=26993" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1cf3c9ddadd22?w=1724&h=1346&f=png&s=299965" alt></li>
+<li>Stream<code>&lt;R&gt;</code> map(Function&lt;? super T, ? extends R&gt; mapper)：<br>接收一个Function函数作为参数，该函数会被应用到每个元素上，并将其映射成一个新的元素。也就是转换操作，map还有三个应用于具体类型方法，分别是：mapToInt，mapToLong和mapToDouble。这三个方法也比较好理解，比如mapToInt就是把原始Stream转换成一个新的Stream，这个新生成的Stream中的元素都是int类型。这三个方法可以免除自动装箱/拆箱的额外消耗。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ccc8f03ae276?w=403&h=202&f=bmp&s=325678" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1cfdc901cae3f?w=1220&h=1454&f=png&s=269788" alt></li>
+<li>Stream<code>&lt;R&gt;</code> flatMap(Function&lt;? super T, ? extends Stream&lt;? extends R&gt;&gt; mapper)：<br>接收一个Function函数作为参数，将流中的每个值都转换成另一个流，然后把所有流连接成一个流。flatMap也有三个应用于具体类型的方法，分别是：flatMapToInt、flatMapToLong、flatMapToDouble，其作用于map的三个衍生方法相同。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ccc8f01d9be4?w=403&h=205&f=jpeg&s=30536" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1d233eb214db4?w=1870&h=2066&f=png&s=451994" alt></li>
+</ul>
+<h4 id="Stream的终端操作"><a href="#Stream的终端操作" class="headerlink" title="Stream的终端操作"></a>Stream的终端操作</h4><p>终端操作执行中间操作链，并返回结果。终端操作我们就不一一介绍了，只介绍一下常用的操作。详细可看java.util.stream.Stream接口中的方法。</p>
+<ul>
+<li>void forEach(Consumer&lt;? super T&gt; action):<br>内部迭代(需要用户去做迭代，称为外部迭代。相反，Stream API使用内部迭代帮你把迭代做了)<pre><code>users.stream().forEach(user -&gt; System.out.println(user.getName()));</code></pre></li>
+<li>&lt;R, A&gt; R collect(Collector&lt;? super T, A, R&gt; collector):<br>收集、将流转换为其他形式，比如转换成List、Set、Map。collect方法是用Collector作为参数，Collector接口中方法的实现决定了如何对流执行收集操作(如收集到 List、Set、Map)。但是 Collectors 实用类提供了很多静态方法，可以方便地创建常见收集器实例。例举一些常用的：<pre><code>List&lt;User&gt; users = Lists.newArrayList();
+users.add(new User(15, &quot;A&quot;, ImmutableList.of(&quot;1元&quot;, &quot;5元&quot;)));
+users.add(new User(25, &quot;B&quot;, ImmutableList.of(&quot;10元&quot;, &quot;50元&quot;)));
+users.add(new User(21, &quot;C&quot;, ImmutableList.of(&quot;100元&quot;)));
+//收集名称到List
+List&lt;String&gt; nameList = users.stream().map(User::getName).collect(Collectors.toList());
+//收集名称到List
+Set&lt;String&gt; nameSet = users.stream().map(User::getName).collect(Collectors.toSet());
+//收集到map,名字作为key,user对象作为value
+Map&lt;String, User&gt; userMap = users.stream()
+              .collect(Collectors.toMap(User::getName, Function.identity(), (k1, k2) -&gt; k2));</code></pre></li>
+<li>其他终端操作：<ol>
+<li>boolean allMatch(Predicate&lt;? super T&gt; predicate); 检查是否匹配所有元素。</li>
+<li>boolean anyMatch(Predicate&lt;? super T&gt; predicate); 检查是否至少匹配一个元素。</li>
+<li>boolean noneMatch(Predicate&lt;? super T&gt; predicate); 检查是否没有匹配所有元素。</li>
+<li>Optional<code>&lt;T&gt;</code> findFirst(); 返回当前流中的第一个元素。</li>
+<li>Optional<code>&lt;T&gt;</code> findAny(); 返回当前流中的任意元素。</li>
+<li>long count(); 返回流中元素总数。</li>
+<li>Optional<code>&lt;T&gt;</code> max(Comparator&lt;? super T&gt; comparator); 返回流中最大值。</li>
+<li>Optional<code>&lt;T&gt;</code> min(Comparator&lt;? super T&gt; comparator); 返回流中最小值。</li>
+<li>T reduce(T identity, BinaryOperator<code>&lt;T&gt;</code> accumulator); 可以将流中元素反复结合起来，得到一个值。 返回 T。这是一个归约操作。</li>
+</ol>
+</li>
+</ul>
+<h4 id="Fork-Join框架"><a href="#Fork-Join框架" class="headerlink" title="Fork/Join框架"></a>Fork/Join框架</h4><p>上面我们提到过，说Stream的并行模式使用了Fork/Join框架，这里简单说下Fork/Join框架是什么？Fork/Join框架是java7中加入的一个并行任务框架，可以将任务拆分为多个小任务，每个小任务执行完的结果在合并成为一个结果。在任务的执行过程中使用工作窃取（work-stealing）算法，减少线程之间的竞争。</p>
+<ul>
+<li>Fork/Join图解<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1e40b7eac4b89?w=800&h=426&f=png&s=85559" alt></li>
+<li>工作窃取图解<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1e414bbc9585b?w=844&h=294&f=png&s=82893" alt><h4 id="Stream是怎么实现的"><a href="#Stream是怎么实现的" class="headerlink" title="Stream是怎么实现的"></a>Stream是怎么实现的</h4>先看下整体类图:蓝色箭头代表继承，绿色箭头代表实现，红色箭头代表内部类。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ef0992b6e39c?w=982&h=854&f=png&s=760332" alt><br>实际上Stream只有两种操作，中间操作、终端操作，中间操作只是一种标记，只有终端操作才会实际触发执行。所以Stream流水线式的操作大致应该是用某种方式记录中间操作，只有调用终端操作才会将所有的中间操作叠加在一起在一次迭代中全部执行。这里只做简单的介绍，想详细了解的可以参考下面的参考资料中的链接。</li>
+<li>操作怎么记录？<br><br>Stream的操作记录是通过ReferencePipeline记录的，ReferencePipeline有三个内部类Head、StatelessOp、StatefulOp，Stream中使用Stage的概念来描述一个完整的操作，并用某种实例化后的ReferencePipeline来代表Stage，Head用于表示第一个Stage，即调用诸如Collection.stream()方法产生的Stage，很显然这个Stage里不包含任何操作，StatelessOp和StatefulOp分别表示无状态和有状态的Stage，对应于无状态和有状态的中间操作。<br><img src="https://user-gold-cdn.xitu.io/2019/7/24/16c1f94ee4740035?w=1000&h=265&f=png&s=37101" alt></li>
+<li>操作怎么叠加？<br><br>操作是记录完了，但是前面的Stage并不知道后面Stage到底执行了哪种操作，以及回调函数是哪种形式。这就需要有某种协议来协调相邻Stage之间的调用关系。<br>这种协议由Sink接口完成，Sink接口包含的方法如下表所示:</li>
+</ul>
+<ol>
+<li>void begin(long size)，开始遍历元素之前调用该方法，通知Sink做好准备。</li>
+<li>void end()，所有元素遍历完成之后调用，通知Sink没有更多的元素了。</li>
+<li>boolean cancellationRequested()，是否可以结束操作，可以让短路操作尽早结束。</li>
+<li>void accept(T t)，遍历元素时调用，接受一个待处理元素，并对元素进行处理。Stage把自己包含的操作和回调方法封装到该方法里，前一个Stage只需要调用当前Stage.accept(T t)方法就行了。<br></li>
+</ol>
+<p>每个Stage都会将自己的操作封装到一个Sink里，前一个Stage只需调用后一个Stage的accept()方法即可，并不需要知道其内部是如何处理的。有了Sink对操作的包装，Stage之间的调用问题就解决了，执行时只需要从流水线的head开始对数据源依次调用每个Stage对应的Sink.{begin(), accept(), cancellationRequested(), end()}方法就可以了。</p>
+<ul>
+<li>操作怎么执行？<br><img src="https://user-gold-cdn.xitu.io/2019/7/24/16c1fac591c62598?w=600&h=701&f=png&s=60869" alt><br>Sink完美封装了Stream每一步操作，并给出了[处理-&gt;转发]的模式来叠加操作。这一连串的齿轮已经咬合，就差最后一步拨动齿轮启动执行。是什么启动这一连串的操作呢？也许你已经想到了启动的原始动力就是结束操作(Terminal Operation)，一旦调用某个结束操作，就会触发整个流水线的执行。<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><a href="https://ifeve.com/stream" target="_blank" rel="noopener">https://ifeve.com/stream</a><br><br><a href="https://www.ibm.com/developerworks/cn/java/j-lo-java8streamapi/" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/java/j-lo-java8streamapi/</a><br><br><a href="https://segmentfault.com/a/1190000016781127" target="_blank" rel="noopener">https://segmentfault.com/a/1190000016781127</a><br><br><a href="https://github.com/CarpenterLee/JavaLambdaInternals/blob/master/6-Stream%20Pipelines.md" target="_blank" rel="noopener">https://github.com/CarpenterLee/JavaLambdaInternals/blob/master/6-Stream%20Pipelines.md</a><br></li>
+</ul>
+<blockquote>
+<p>感谢大家的观看，希望多多关注哦。 如有错误，烦请指正。</p>
+</blockquote>
 
-    /**
-     * 步骤二：声明变量
-     */
-    private Integer inputNumber;
-    private Boolean expectedResult;
-    private PrimeNumberChecker primeNumberChecker;
-
-    /**
-     * 步骤三：为测试类声明一个带有参数的公共构造函数，为变量赋值
-     */
-    public PrimeNumberCheckerTest(Integer inputNumber,
-                                  Boolean expectedResult) {
-        this.inputNumber = inputNumber;
-        this.expectedResult = expectedResult;
-    }
-
-    /**
-     * 步骤四：为测试类声明一个使用注解 org.junit.runners.Parameterized.Parameters 修饰的，返回值为
-     * java.util.Collection 的公共静态方法，并在此方法中初始化所有需要测试的参数对
-     *   1）该方法必须由Parameters注解修饰 
-          2）该方法必须为public static的 
-          3）该方法必须返回Collection类型 
-          4）该方法的名字不做要求 
-          5）该方法没有参数 
-     */
-    @Parameterized.Parameters
-    public static Collection primeNumbers() {
-        return Arrays.asList(new Object[][]{
-                {2, true},
-                {6, false},
-                {19, true},
-                {22, false},
-                {23, true}
-        });
-    }
-
-    @Before
-    public void initialize() {
-        primeNumberChecker = new PrimeNumberChecker();
-    }
-
-    /**
-     * 步骤五：编写测试方法，使用自定义变量进行测试
-     */
-    @Test
-    public void testPrimeNumberChecker() {
-        System.out.println(&quot;Parameterized Number is : &quot; + inputNumber);
-        Assert.assertEquals(expectedResult,
-                primeNumberChecker.validate(inputNumber));
-    }
-}</code></pre><p>PrimeNumberChecker.java</p>
-<pre><code>public class PrimeNumberChecker {
-
-    public Boolean validate(final Integer parimeNumber) {
-        for (int i = 2; i &lt; (parimeNumber / 2); i++) {
-            if (parimeNumber % i == 0) {
-                return false;
-            }
-        }
-        return true;
-    }
-}</code></pre><p>JUnit会按照设置的参数多次执行，执行结果：</p>
-<pre><code>Parameterized Number is : 2
-Parameterized Number is : 6
-Parameterized Number is : 19
-Parameterized Number is : 22
-Parameterized Number is : 23</code></pre><h4 id="十、套件测试"><a href="#十、套件测试" class="headerlink" title="十、套件测试"></a>十、套件测试</h4><p>“套件测试”是指捆绑了几个单元测试用例并运行起来。在JUnit中，@RunWith 和 @Suite 这两个注解是用来运行套件测试。先来创建几个测试类</p>
-<pre><code>public class JunitTest1 {
-
-    @Test
-    public void printMessage(){
-        System.out.println(&quot;in JunitTest1&quot;);
-    }
-}</code></pre><pre><code>public class JunitTest2 {
-
-    @Test
-    public void printMessage(){
-        System.out.println(&quot;in JunitTest2&quot;);
-    }
-}</code></pre><pre><code>@RunWith(Suite.class)
-@Suite.SuiteClasses({
-        /**
-         * 此处类的配置顺序会影响执行顺序
-         */
-        JunitTest1.class,
-        JunitTest2.class
-})
-public class JunitSuite {
-
-}</code></pre><p>执行JunitSuite测试类，执行结果：</p>
-<pre><code>in JunitTest1
-in JunitTest2</code></pre>
             </div>
             <hr />
 
@@ -1014,9 +748,9 @@ in JunitTest2</code></pre>
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《JUnit4教程+实践》
+                    《「Java8系列」流式编程Stream》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/01/junit4-jiao-cheng-shi-jian/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/04/java8-xi-lie-liu-shi-bian-cheng-stream/" property="cc:attributionName"
                rel="cc:attributionURL">
                 李晓双
             </a> 采用
@@ -1057,7 +791,7 @@ in JunitTest2</code></pre>
         repo: 'codeefficient.github.io',
         owner: 'Codeefficient',
         admin: "Codeefficient",
-        id: '2019/11/01/junit4-jiao-cheng-shi-jian/',
+        id: '2019/11/04/java8-xi-lie-liu-shi-bian-cheng-stream/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1340,28 +1074,29 @@ in JunitTest2</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/11/02/go-xue-xi-bi-ji-2-go-yu-yan-you-shi-me-zu-cheng/">
+                <a href="/2019/11/04/java8-xi-lie-liu-shi-bian-cheng-stream/">
                     <div class="card-image">
                         
-                        <img src="https://i.loli.net/2019/10/30/SqL9tM5yQbB8afA.jpg" class="responsive-img" alt="「Go学习笔记」2.Go语言由什么组成？">
+                        <img src="https://img.ctolib.com/uploadImg/20190422/20190422084602_571.jpg" class="responsive-img" alt="「Java8系列」流式编程Stream">
                         
-                        <span class="card-title">「Go学习笔记」2.Go语言由什么组成？</span>
+                        <span class="card-title">「Java8系列」流式编程Stream</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            标识符Go语言标识符是用于标识变量、函数或任何用户自定义项目的名称（程序实体），这个标识符就类似java中的数据类型（基本数据类型、引用数据类型）。标识符有两种类别，一种是用户自定义的标识符，它作为程序的实体存在。另一种标识符成为预定义标识
+                            前言「Java8系列」神秘的Lambda「Java8系列」神奇的函数式接口继上两篇之后，本文已经java8系列的第三篇了。本篇文章比较长，但我希望大家都能认真读完。读不完可以先收藏，在找时间读。没看过前两篇的可以点上边的链接看看，前两篇文章
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-02
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-04
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1374,11 +1109,16 @@ in JunitTest2</code></pre>
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Go/" target="_blank">
-                        <span class="chip bg-color">Go</span>
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/Java8/" target="_blank">
+                        <span class="chip bg-color">Java8</span>
                     </a>
                     
                 </div>
@@ -1392,23 +1132,23 @@ in JunitTest2</code></pre>
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/10/31/java8-xi-lie-shen-mi-de-lambda/">
+                <a href="/2019/11/03/java8-xi-lie-shen-qi-de-han-shu-shi-jie-kou/">
                     <div class="card-image">
                         
-                        <img src="https://img.ctolib.com/uploadImg/20190422/20190422084602_571.jpg" class="responsive-img" alt="「Java8系列」神秘的Lambda">
+                        <img src="https://img.ctolib.com/uploadImg/20190422/20190422084602_571.jpg" class="responsive-img" alt="「Java8系列」神奇的函数式接口">
                         
-                        <span class="card-title">「Java8系列」神秘的Lambda</span>
+                        <span class="card-title">「Java8系列」神奇的函数式接口</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            接触背景第一次接触lambda表达式时，感觉这个东西挺神奇的（高逼格），一个（）加-&gt;就能传递一段代码，当时公司项目中接手同事的代码，自己也对java8的特性不了解，看的也是一头雾水，之后就赶快看了下《java8实战》这本书，决定写一
+                            前言在上一篇Lambda的讲解中我们就提到过函数式接口，比如：Consumer&lt;String&gt; consumer = (s) -&gt; System.out.println(s);其中Consumer就是一个函数式接口。这里是
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-10-31
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-03
                             </span>
                         <span class="publish-author">
                             
