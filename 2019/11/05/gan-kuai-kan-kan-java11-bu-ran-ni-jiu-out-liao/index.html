@@ -4,11 +4,16 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="「Java8系列」流式编程Stream, Java Go lixiaoshuang 后端 MySql Redis Spring SpringBoot SpringCloud MQ">
+    <meta name="keywords" content="赶快看看Java11，不然你就out了, Java Go lixiaoshuang 后端 MySql Redis Spring SpringBoot SpringCloud MQ">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
     <meta name="360-site-verification" content>
-    <meta name="description" content="前言「Java8系列」神秘的Lambda「Java8系列」神奇的函数式接口继上两篇之后，本文已经java8系列的第三篇了。本篇文章比较长，但我希望大家都能认真读完。读不完可以先收藏，在找时间读。没看过前两篇的可以点上边的链接看看，前两篇文章">
+    <meta name="description" content="为什么选择Java11
+容器环境支持，GC等领域的增强。
+进行了瘦身，更轻量级，安装包体积小。
+JDK11 是一个长期支持版。
+
+特性介绍由于直接从Java8跨越到Java11，所以特性介绍就把Java9-Java11的部分特性一起介绍一下">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +21,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>「Java8系列」流式编程Stream | 码出高效</title>
+    <title>赶快看看Java11，不然你就out了 | 码出高效</title>
     <link rel="icon" type="image/png" href="/blogicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -304,13 +309,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://img.ctolib.com/uploadImg/20190422/20190422084602_571.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2019/11/05/hSzblLG8gTKoCNt.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        「Java8系列」流式编程Stream
+                        赶快看看Java11，不然你就out了
                     </div>
                 </div>
             </div>
@@ -421,12 +426,8 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/Java/" target="_blank">
-                            <span class="chip bg-color">Java</span>
-                        </a>
-                        
-                        <a href="/tags/Java8/" target="_blank">
-                            <span class="chip bg-color">Java8</span>
+                        <a href="/tags/Java11/" target="_blank">
+                            <span class="chip bg-color">Java11</span>
                         </a>
                         
                     </div>
@@ -449,7 +450,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-04
+                    2019-11-05
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -463,14 +464,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    3.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    15 分
                 </div>
                 
                 
@@ -486,107 +487,371 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p><a href="https://juejin.im/post/5d2d15825188253d7201d297" target="_blank" rel="noopener">「Java8系列」神秘的Lambda</a><br><br><a href="https://juejin.im/post/5d2ff837f265da1bd424b710" target="_blank" rel="noopener">「Java8系列」神奇的函数式接口</a><br><br>继上两篇之后，本文已经java8系列的第三篇了。本篇文章比较长，但我希望大家都能认真读完。读不完可以先收藏，在找时间读。没看过前两篇的可以点上边的链接看看，前两篇文章算是对是用Stream铺垫的一点基础吧，不过不看也可以学会使用Stream，但看了会有助于更好的理解和使用。在没有深入了解之前，我以为Stream也是数据的载体，但后来发现并不是。那么它到底是什么？听我慢慢道来。</p>
-<h4 id="什么是Stream？"><a href="#什么是Stream？" class="headerlink" title="什么是Stream？"></a>什么是Stream？</h4><p>Stream它并不是一个容器，它只是对容器的功能进行了增强，添加了很多便利的操作,例如查找、过滤、分组、排序等一系列的操作。并且有串行、并行两种执行模式，并行模式充分的利用了多核处理器的优势，使用fork/join框架进行了任务拆分，同时提高了执行速度。简而言之，Stream就是提供了一种高效且易于使用的处理数据的方式。</p>
-<ul>
-<li>特点：</li>
+                <h3 id="为什么选择Java11"><a href="#为什么选择Java11" class="headerlink" title="为什么选择Java11"></a>为什么选择Java11</h3><ul>
+<li>容器环境支持，GC等领域的增强。</li>
+<li>进行了瘦身，更轻量级，安装包体积小。</li>
+<li>JDK11 是一个长期支持版。</li>
 </ul>
-<ol>
-<li>Stream自己不会存储元素。 </li>
-<li>Stream的操作不会改变源对象。相反，他们会返回一个持有结果的新Stream。</li>
-<li>Stream 操作是延迟执行的。它会等到需要结果的时候才执行。也就是执行终端操作的时候。</li>
-</ol>
+<h3 id="特性介绍"><a href="#特性介绍" class="headerlink" title="特性介绍"></a>特性介绍</h3><p>由于直接从Java8跨越到Java11，所以特性介绍就把Java9-Java11的部分特性一起介绍一下。想要了解Java8特性的朋友可以去我的博客找「Java8系列」。</p>
+<h4 id="Jshell-since-9"><a href="#Jshell-since-9" class="headerlink" title="Jshell  @since 9"></a>Jshell  @since 9</h4><p>Jshell在Java9中就被提出来了，可以直接在终端写Java程序，回车就可以执行。Jshell默认会导入下面的一些包,所以在Jshell环境中这些包的内容都是可以使用的。</p>
+<pre><code>import java.lang.*;
+import java.io.*;
+import java.math.*;
+import java.net.*;
+import java.nio.file.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.function.*;
+import java.util.prefs.*;
+import java.util.regex.*;
+import java.util.stream.*;</code></pre><h5 id="1-什么是Jshell"><a href="#1-什么是Jshell" class="headerlink" title="1.什么是Jshell?"></a>1.什么是Jshell?</h5><p>Jshell是在 Java 9 中引入的。它提供了一个交互式 shell，用于快速原型、调试、学习 Java 及 Java API，所有这些都不需要 public static void main 方法，也不需要在执行之前编译代码。</p>
+<h5 id="2-Jshell的使用"><a href="#2-Jshell的使用" class="headerlink" title="2.Jshell的使用"></a>2.Jshell的使用</h5><p>打开终端，键入jshell进入jshell环境，然后输入/help intro可以查看Jshell的介绍。</p>
+<pre><code> lixiaoshuang@localhost  ~  jshell
+|  欢迎使用 JShell -- 版本 11.0.2
+|  要大致了解该版本, 请键入: /help intro
+
+jshell&gt; /help intro
+|
+|                                   intro
+|                                   =====
+|
+|  使用 jshell 工具可以执行 Java 代码，从而立即获取结果。
+|  您可以输入 Java 定义（变量、方法、类等等），例如：int x = 8
+|  或 Java 表达式，例如：x + x
+|  或 Java 语句或导入。
+|  这些小块的 Java 代码称为“片段”。
+|
+|  这些 jshell 工具命令还可以让您了解和
+|  控制您正在执行的操作，例如：/list
+|
+|  有关命令的列表，请执行：/help
+
+jshell&gt;</code></pre><p>Jshell确实是一个好用的小工具，这里不做过多介绍，我就举一个例子，剩下的大家自己体会。比如我们现在就想随机生成一个UUID，以前需要这么做：</p>
 <ul>
-<li>图解：<br><img src="https://user-gold-cdn.xitu.io/2019/7/22/16c198ac61885693?w=1090&h=436&f=png&s=38873" alt="在这里插入图片描述"><br>一个Stream的操作就如上图，在一个管道内，分为三个步骤，第一步是创建Stream，从集合、数组中获取一个流，第二步是中间操作链，对数据进行处理。第三步是终端操作，用来执行中间操作链，返回结果。<h4 id="怎么创建Stream"><a href="#怎么创建Stream" class="headerlink" title="怎么创建Stream?"></a>怎么创建Stream?</h4></li>
-<li>由集合创建：<br>Java8 中的 Collection 接口被扩展，提供了两个获取流的方法,这两个方法是default方法，也就是说所有实现Collection接口的接口都不需要实现就可以直接使用：</li>
+<li>创建一个类。</li>
+<li>创建一个main方法。</li>
+<li>然后写一个生成UUID的逻辑，执行。</li>
 </ul>
-<ol>
-<li>default Stream<e> stream() : 返回一个顺序流。</e></li>
-<li>default Stream<e> parallelStream() : 返回一个并行流。<br><pre><code> 例如：
-     List&lt;Integer&gt; integerList = new ArrayList&lt;&gt;();
-     integerList.add(1);
-     integerList.add(2);
-     Stream&lt;Integer&gt; stream = integerList.stream();
-     Stream&lt;Integer&gt; stream1 = integerList.parallelStream();</code></pre></e></li>
-</ol>
+<p>现在只需要,进入打开终端键入jshell,然后直接输入<code>var uuid = UUID.randomUUID()</code>回车。就可以看到uuid的回显，这样我们就得到了一个uuid。并不需要public static void main;</p>
+<pre><code> lixiaoshuang@localhost  ~  jshell
+|  欢迎使用 JShell -- 版本 11.0.2
+|  要大致了解该版本, 请键入: /help intro
+
+jshell&gt; var uuid = UUID.randomUUID();
+ uuid ==&gt; 9dac239e-c572-494f-b06d-84576212e012
+jshell&gt;</code></pre><h5 id="3-怎么退出Jshell？"><a href="#3-怎么退出Jshell？" class="headerlink" title="3.怎么退出Jshell？"></a>3.怎么退出Jshell？</h5><p>在Jshell环境中键入<code>/exit</code>就可以退出。</p>
+<pre><code> lixiaoshuang@localhost  ~ 
+ lixiaoshuang@localhost  ~  jshell
+|  欢迎使用 JShell -- 版本 11.0.2
+|  要大致了解该版本, 请键入: /help intro
+
+jshell&gt; var uuid = UUID.randomUUID();
+uuid ==&gt; 9dac239e-c572-494f-b06d-84576212e012
+
+jshell&gt; /exit
+|  再见
+ lixiaoshuang@localhost  ~ </code></pre><h4 id="模块化（Module）-since-9"><a href="#模块化（Module）-since-9" class="headerlink" title="模块化（Module）@since 9"></a>模块化（Module）@since 9</h4><h5 id="1-什么是模块化？"><a href="#1-什么是模块化？" class="headerlink" title="1.什么是模块化？"></a>1.什么是模块化？</h5><p>模块化就是增加了更高级别的聚合，是Package的封装体。Package是一些类路径名字的约定，而模块是一个或多个Package组成的封装体。</p>
+<p>java9以前 ：package =&gt; class/interface。</p>
+<p>java9以后 ：module =&gt; package =&gt; class/interface。</p>
+<p>那么JDK被拆为了哪些模块呢？打开终端执行<code>java --list-modules</code>查看。</p>
+<pre><code>lixiaoshuang@localhost  ~ java --list-modules
+java.base@11.0.2
+java.compiler@11.0.2
+java.datatransfer@11.0.2
+java.desktop@11.0.2
+java.instrument@11.0.2
+java.logging@11.0.2
+java.management@11.0.2
+java.management.rmi@11.0.2
+java.naming@11.0.2
+java.net.http@11.0.2
+java.prefs@11.0.2
+java.rmi@11.0.2
+java.scripting@11.0.2
+java.se@11.0.2
+java.security.jgss@11.0.2
+java.security.sasl@11.0.2
+java.smartcardio@11.0.2
+java.sql@11.0.2
+java.sql.rowset@11.0.2
+java.transaction.xa@11.0.2
+java.xml@11.0.2
+java.xml.crypto@11.0.2
+jdk.accessibility@11.0.2
+jdk.aot@11.0.2
+jdk.attach@11.0.2
+jdk.charsets@11.0.2
+jdk.compiler@11.0.2
+jdk.crypto.cryptoki@11.0.2
+jdk.crypto.ec@11.0.2
+jdk.dynalink@11.0.2
+jdk.editpad@11.0.2
+jdk.hotspot.agent@11.0.2
+jdk.httpserver@11.0.2
+jdk.internal.ed@11.0.2
+jdk.internal.jvmstat@11.0.2
+jdk.internal.le@11.0.2
+jdk.internal.opt@11.0.2
+jdk.internal.vm.ci@11.0.2
+jdk.internal.vm.compiler@11.0.2
+jdk.internal.vm.compiler.management@11.0.2
+jdk.jartool@11.0.2
+jdk.javadoc@11.0.2
+jdk.jcmd@11.0.2
+jdk.jconsole@11.0.2
+jdk.jdeps@11.0.2
+jdk.jdi@11.0.2
+jdk.jdwp.agent@11.0.2
+jdk.jfr@11.0.2
+jdk.jlink@11.0.2
+jdk.jshell@11.0.2
+jdk.jsobject@11.0.2
+jdk.jstatd@11.0.2
+jdk.localedata@11.0.2
+jdk.management@11.0.2
+jdk.management.agent@11.0.2
+jdk.management.jfr@11.0.2
+jdk.naming.dns@11.0.2
+jdk.naming.rmi@11.0.2
+jdk.net@11.0.2
+jdk.pack@11.0.2
+jdk.rmic@11.0.2
+jdk.scripting.nashorn@11.0.2
+jdk.scripting.nashorn.shell@11.0.2
+jdk.sctp@11.0.2
+jdk.security.auth@11.0.2
+jdk.security.jgss@11.0.2
+jdk.unsupported@11.0.2
+jdk.unsupported.desktop@11.0.2
+jdk.xml.dom@11.0.2
+jdk.zipfs@11.0.2</code></pre><h5 id="2-为什么这么做？"><a href="#2-为什么这么做？" class="headerlink" title="2.为什么这么做？"></a>2.为什么这么做？</h5><p>大家都知道JRE中有一个超级大的rt.jar(60多M)，tools.jar也有几十兆，以前运行一个hello world也需要上百兆的环境。</p>
 <ul>
-<li>由数组创建：<br>Java8 中的 Arrays 的静态方法 stream() 可以获取数组流:</li>
+<li>让Java SE程序更加容易轻量级部署。</li>
+<li>强大的封装能力。</li>
+<li>改进组件间的依赖管理，引入比jar粒度更大的Module。</li>
+<li>改进性能和安全性。</li>
 </ul>
-<ol>
-<li>static <t> Stream<t> stream(T[] array): 返回一个流</t></t></li>
-<li>重载形式，能够处理对应基本类型的数组:<br><br>public static IntStream stream(int[] array)<br><br>public static LongStream stream(long[] array)<br><br>public static DoubleStream stream(double[] array)<br><pre><code> 例如：
-     int[] intArray = {1,2,3};
-     IntStream stream = Arrays.stream(intArray);</code></pre></li>
-</ol>
+<h5 id="3-怎么定义模块"><a href="#3-怎么定义模块" class="headerlink" title="3.怎么定义模块?"></a>3.怎么定义模块?</h5><p>模块的是通过module-info.java进行定义，编译后打包后，就成为一个模块的实体。下面来看下最简单的模块定义。</p>
+<p><img src="https://i.loli.net/2019/11/03/eaJ9cAKDjTWipo8.png" alt></p>
+<p><img src="https://i.loli.net/2019/11/03/FKVhUwTfy4AraqP.png" alt></p>
+<h5 id="4-模块的关键字"><a href="#4-模块的关键字" class="headerlink" title="4.模块的关键字"></a>4.模块的关键字</h5><ul>
+<li><p>open</p>
+<p>用来指定开放模块,开放模块的所有包都是公开的,public的可以直接引用使用,其他类型可以通过反射得到。</p>
+<pre><code>open module module.one {
+    //导入日志包
+   requires java.logging;
+
+}</code></pre></li>
+<li><p>opens</p>
+<p>opens 用来指定开放的包,其中public类型是可以直接访问的,其他类型可以通过反射得到。</p>
+<pre><code>module module.one {
+
+    opens &lt;package&gt;;
+}</code></pre></li>
+<li><p>exports</p>
+<p>exports用于指定模块下的哪些包可以被其他模块访问。</p>
+<pre><code>module module.one {
+
+    exports &lt;package&gt;;
+
+    exports &lt;package&gt; to &lt;module1&gt;, &lt;module2&gt;...;
+}</code></pre></li>
+<li><p>requires</p>
+<p>该关键字声明当前模块与另一个模块的依赖关系。</p>
+<pre><code>module module.one {
+
+    requires &lt;package&gt;;
+
+}</code></pre></li>
+<li><p>uses、provides…with…</p>
+<p>uses语句使用服务接口的名字,当前模块就会发现它,使用java.util.ServiceLoader类进行加载,必须是本模块中的,不能是其他模块中的.其实现类可以由其他模块提供。</p>
+<pre><code>module module.one {
+
+    //对外提供的接口服务 ,下面指定的接口以及提供服务的impl，如果有多个实现类，用用逗号隔开
+    uses &lt;接口名&gt;;
+
+    provides &lt;接口名&gt; with &lt;接口实现类&gt;,&lt;接口实现类&gt;;
+
+}</code></pre></li>
+</ul>
+<h4 id="var关键字-since-10"><a href="#var关键字-since-10" class="headerlink" title="var关键字   @since 10"></a>var关键字   @since 10</h4><h5 id="1-var是什么？"><a href="#1-var是什么？" class="headerlink" title="1.var是什么？"></a>1.var是什么？</h5><p>var是Java10中新增的局部类型变量推断。它会根据后面的值来推断变量的类型，所以var必须要初始化。</p>
+<p>例：</p>
+<pre><code>var a;       ❌
+var a = 1;   ✅</code></pre><h5 id="2-var使用示例"><a href="#2-var使用示例" class="headerlink" title="2.var使用示例"></a>2.var使用示例</h5><ul>
+<li><p>var定义局部变量</p>
+<pre><code>var a = 1; 
+等于
+int a = 1;</code></pre></li>
+<li><p>var接收方法返回时</p>
+<pre><code>var result = this.getResult();
+等于
+String result = this.getResult();</code></pre></li>
+<li><p>var循环中定义局部变量</p>
+<pre><code>for (var i = 0; i &lt; 5; i++) {
+   System.out.println(i);
+}
+等于
+for (int i = 0; i &lt; 5; i++) {
+   System.out.println(i);
+}</code></pre></li>
+<li><p>var结合泛型</p>
+<pre><code>var list1 = new ArrayList&lt;String&gt;();  //在&lt;&gt;中指定了list类型为String
+等于
+List&lt;String&gt; list1 = new ArrayList&lt;&gt;();
+
+var list2 = new ArrayList&lt;&gt;();        //&lt;&gt;里默认会是Object</code></pre></li>
+<li><p>var在Lambda中使用（java11才可以使用）</p>
+<pre><code>Consumer&lt;String&gt; Consumer = (var i) -&gt; System.out.println(i);
+等于
+Consumer&lt;String&gt; Consumer = (String i) -&gt; System.out.println(i);</code></pre></li>
+</ul>
+<h5 id="3-var不能再哪里使用？"><a href="#3-var不能再哪里使用？" class="headerlink" title="3.var不能再哪里使用？"></a>3.var不能再哪里使用？</h5><ul>
+<li>类成员变量类型。</li>
+<li>方法返回值类型。</li>
+<li>Java10中Lambda不能使用var，Java11中可以使用。</li>
+</ul>
+<h4 id="增强api"><a href="#增强api" class="headerlink" title="增强api"></a>增强api</h4><h5 id="1-字符串增强-since-11"><a href="#1-字符串增强-since-11" class="headerlink" title="1.字符串增强 @since 11"></a>1.字符串增强 @since 11</h5><pre><code>// 判断字符串是否为空白
+&quot; &quot;.isBlank();                     // true
+
+// 去除首尾空格
+&quot; Hello Java11 &quot;.strip();          // &quot;Hello Java11&quot;
+
+// 去除尾部空格 
+&quot; Hello Java11 &quot;.stripTrailing();  // &quot; Hello Java11&quot;
+
+// 去除首部空格 
+&quot; Hello Java11 &quot;.stripLeading();   // &quot;Hello Java11 &quot;
+
+// 复制字符串
+&quot;Java11&quot;.repeat(3);                // &quot;Java11Java11Java11&quot;
+
+// 行数统计
+&quot;A\nB\nC&quot;.lines().count();         // 3</code></pre><h5 id="2-集合增强"><a href="#2-集合增强" class="headerlink" title="2.集合增强"></a>2.集合增强</h5><p>从Java 9 开始，jdk里面就为集合（List、Set、Map）增加了of和copyOf方法。它们用来创建不可变集合。</p>
 <ul>
-<li>由值创建:<br>可以使用静态方法 Stream.of(), 通过显示值 创建一个流。它可以接收任意数量的参数。</li>
+<li>of()  @since 9</li>
+<li>copyOf()  @since 10</li>
 </ul>
-<ol>
-<li>public static<t> Stream<t> of(T… values) : 返回一个流。<br><pre><code> 例如：
- Stream&lt;Integer&gt; integerStream = Stream.of(1, 2, 3, 4, 5, 6, 7, 8);</code></pre></t></t></li>
-</ol>
+<p>示例一：</p>
+<pre><code>        var list = List.of(&quot;Java&quot;, &quot;Python&quot;, &quot;C&quot;); //不可变集合
+        var copy = List.copyOf(list);         //copyOf判断是否是不可变集合类型，如果是直接返回
+        System.out.println(list == copy);    // true
+
+        var list = new ArrayList&lt;String&gt;();  // 这里返回正常的集合
+        var copy = List.copyOf(list);        // 这里返回一个不可变集合
+        System.out.println(list == copy);    // false</code></pre><p>示例二：</p>
+<pre><code>        var set = Set.of(&quot;Java&quot;, &quot;Python&quot;, &quot;C&quot;);
+        var copy = Set.copyOf(set);
+        System.out.println(set == copy);     // true
+
+        var set1 = new HashSet&lt;String&gt;();
+        var copy1 = List.copyOf(set1);
+        System.out.println(set1 == copy1);   // false</code></pre><p>示例三：</p>
+<pre><code>        var map = Map.of(&quot;Java&quot;, 1, &quot;Python&quot;, 2, &quot;C&quot;, 3);
+        var copy = Map.copyOf(map);
+        System.out.println(map == copy);     // true
+
+        var map1 = new HashMap&lt;String, Integer&gt;();
+        var copy1 = Map.copyOf(map1);
+        System.out.println(map1 == copy1);   // false</code></pre><p><code>注意：使用 of 和 copyOf 创建的集合为不可变集合，不能进行添加、删除、替换、排序等操作，不然会报java.lang.UnsupportedOperationException异常，使用Set.of()不能出现重复元素、Map.of()不能出现重复key，否则回报java.lang.IllegalArgumentException。</code>。</p>
+<h5 id="3-Stream增强-since-9"><a href="#3-Stream增强-since-9" class="headerlink" title="3.Stream增强 @since 9"></a>3.Stream增强 @since 9</h5><p>Stream是Java 8 中的特性，在Java 9 中为其新增了4个方法：</p>
 <ul>
-<li>由函数创建：创建无限流<br>可以使用静态方法 Stream.iterate() 和 Stream.generate()创建无限流。</li>
+<li><p>ofNullable(T t)</p>
+<p>此方法可以接收null来创建一个空流</p>
+<pre><code>以前
+Stream.of(null);  //报错
+现在
+Stream.ofNullable(null);</code></pre></li>
+<li><p>takeWhile(Predicate&lt;? super T&gt; predicate) </p>
+<p>此方法根据Predicate接口来判断如果为true就 <code>取出</code> 来生成一个新的流,只要碰到false就终止，不管后边的元素是否符合条件。</p>
+<pre><code>        Stream&lt;Integer&gt; integerStream = Stream.of(6, 10, 11, 15, 20);
+        Stream&lt;Integer&gt; takeWhile = integerStream.takeWhile(t -&gt; t % 2 == 0);
+        takeWhile.forEach(System.out::println);   // 6,10</code></pre></li>
+<li><p>dropWhile(Predicate&lt;? super T&gt; predicate)</p>
+<p>此方法根据Predicate接口来判断如果为true就 <code>丢弃</code> 来生成一个新的流,只要碰到false就终止，不管后边的元素是否符合条件。</p>
+<pre><code>        Stream&lt;Integer&gt; integerStream = Stream.of(6, 10, 11, 15, 20);
+        Stream&lt;Integer&gt; takeWhile = integerStream.dropWhile(t -&gt; t % 2 == 0);
+        takeWhile.forEach(System.out::println);  //11,15,20</code></pre></li>
+<li><p>iterate重载</p>
+<p>以前使用iterate方法生成无限流需要配合limit进行截断</p>
+<pre><code>        Stream&lt;Integer&gt; limit = Stream.iterate(1, i -&gt; i + 1).limit(5);
+        limit.forEach(System.out::println);   //1,2,3,4,5</code></pre><p>现在重载后这个方法增加了个判断参数</p>
+<pre><code>        Stream&lt;Integer&gt; iterate = Stream.iterate(1, i -&gt; i &lt;= 5, i -&gt; i + 1);
+        iterate.forEach(System.out::println);  //1,2,3,4,5</code></pre></li>
 </ul>
-<ol>
-<li>迭代<br>public static<t> Stream<t> iterate(final T seed, final UnaryOperator<t> f)</t></t></t></li>
-<li>生成<br>public static<t> Stream<t> generate(Supplier<t> s) <pre><code> 例如：
- Stream.generate(Math::random).limit(5).forEach(System.out::print); 
- List&lt;Integer&gt; collect = Stream.iterate(0,i -&gt; i + 1).limit(5).collect(Collectors.toList());</code></pre><code>注意：使用无限流一定要配合limit截断，不然会无限制创建下去。</code><h4 id="Stream的中间操作"><a href="#Stream的中间操作" class="headerlink" title="Stream的中间操作"></a>Stream的中间操作</h4>如果Stream只有中间操作是不会执行的，当执行终端操作的时候才会执行中间操作，这种方式称为延迟加载或惰性求值。多个中间操作组成一个中间操作链，只有当执行终端操作的时候才会执行一遍中间操作链，具体是因为什么我们在后面再说明。下面看下Stream有哪些中间操作。</t></t></t></li>
-</ol>
+<h5 id="4-Optional增强-since-9"><a href="#4-Optional增强-since-9" class="headerlink" title="4.Optional增强  @since 9"></a>4.Optional增强  @since 9</h5><ul>
+<li><p>stream()</p>
+<p>如果为空返回一个空流，如果不为空将Optional的值转成一个流。</p>
+<pre><code>        //返回Optional值的流
+        Stream&lt;String&gt; stream = Optional.of(&quot;Java 11&quot;).stream();
+        stream.forEach(System.out::println);    // Java 11
+
+        //返回空流
+        Stream&lt;Object&gt; stream = Optional.ofNullable(null).stream();
+        stream.forEach(System.out::println);    // </code></pre></li>
+</ul>
 <ul>
-<li>Stream<code>&lt;T&gt;</code> distinct()：<br>去重，通过流所生成元素的 hashCode() 和 equals() 去除重复元素。<br><img src="https://user-gold-cdn.xitu.io/2019/7/22/16c1a26c389e630e?w=403&h=205&f=jpeg&s=30693" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ce3dc266d996?w=1464&h=1346&f=png&s=269768" alt></li>
-<li>Stream<code>&lt;T&gt;</code> filter(Predicate&lt;? super T&gt; predicate):<br>Predicate函数在上一篇当中我们已经讲过，它是断言型接口，所以filter方法中是接收一个和Predicate函数对应Lambda表达式，返回一个布尔值，从流中过滤某些元素。<br><img src="https://user-gold-cdn.xitu.io/2019/7/22/16c1a2418a587f98?w=403&h=206&f=jpeg&s=26361" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ce5ccf0970d0?w=1464&h=1310&f=png&s=263394" alt></li>
-<li>Stream<code>&lt;T&gt;</code> sorted(Comparator&lt;? super T&gt; comparator):<br>指定比较规则进行排序。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ce00179fc96a?w=1464&h=1310&f=png&s=264409" alt></li>
-<li>Stream<code>&lt;T&gt;</code> limit(long maxSize):<br>截断流，使其元素不超过给定数量。如果元素的个数小于maxSize，那就获取所有元素。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ccc8ee241e40?w=403&h=205&f=jpeg&s=30573" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1cf0a4636351b?w=1572&h=1346&f=png&s=290113" alt></li>
-<li>Stream<code>&lt;T&gt;</code> skip(long n):<br>跳过元素，返回一个扔掉了前 n 个元素的流。若流中元素不足 n 个，则返回一个空流。与 limit(n) 互补。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ccc8eff0c379?w=403&h=205&f=jpeg&s=26993" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1cf3c9ddadd22?w=1724&h=1346&f=png&s=299965" alt></li>
-<li>Stream<code>&lt;R&gt;</code> map(Function&lt;? super T, ? extends R&gt; mapper)：<br>接收一个Function函数作为参数，该函数会被应用到每个元素上，并将其映射成一个新的元素。也就是转换操作，map还有三个应用于具体类型方法，分别是：mapToInt，mapToLong和mapToDouble。这三个方法也比较好理解，比如mapToInt就是把原始Stream转换成一个新的Stream，这个新生成的Stream中的元素都是int类型。这三个方法可以免除自动装箱/拆箱的额外消耗。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ccc8f03ae276?w=403&h=202&f=bmp&s=325678" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1cfdc901cae3f?w=1220&h=1454&f=png&s=269788" alt></li>
-<li>Stream<code>&lt;R&gt;</code> flatMap(Function&lt;? super T, ? extends Stream&lt;? extends R&gt;&gt; mapper)：<br>接收一个Function函数作为参数，将流中的每个值都转换成另一个流，然后把所有流连接成一个流。flatMap也有三个应用于具体类型的方法，分别是：flatMapToInt、flatMapToLong、flatMapToDouble，其作用于map的三个衍生方法相同。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ccc8f01d9be4?w=403&h=205&f=jpeg&s=30536" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1d233eb214db4?w=1870&h=2066&f=png&s=451994" alt></li>
+<li><p>ifPresentOrElse(Consumer&lt;? super T&gt; action, Runnable emptyAction)</p>
+<p>个人感觉这个方法就是结合isPresent()对Else的增强，ifPresentOrElse 方法的用途是，如果一个 Optional 包含值，则对其包含的值调用函数 action，即 action.accept(value)，这与 ifPresent 一致；与 ifPresent 方法的区别在于，ifPresentOrElse 还有第二个参数 emptyAction —— 如果 Optional 不包含值，那么 ifPresentOrElse 便会调用 emptyAction，即 emptyAction.run()。</p>
+<pre><code>        Optional&lt;Integer&gt; optional = Optional.of(1);
+        optional.ifPresentOrElse( x -&gt; System.out.println(&quot;Value: &quot; + x),() -&gt;
+                System.out.println(&quot;Not Present.&quot;));    //Value: 1
+
+        optional = Optional.empty();
+        optional.ifPresentOrElse( x -&gt; System.out.println(&quot;Value: &quot; + x),() -&gt;
+                System.out.println(&quot;Not Present.&quot;));    //Not Present.</code></pre></li>
+<li><p>or(Supplier&lt;? extends Optional&lt;? extends T&gt;&gt; supplier)</p>
+<pre><code>       Optional&lt;String&gt; optional1 = Optional.of(&quot;Java&quot;);
+       Supplier&lt;Optional&lt;String&gt;&gt; supplierString = () -&gt; Optional.of(&quot;Not Present&quot;);
+       optional1 = optional1.or( supplierString);
+       optional1.ifPresent( x -&gt; System.out.println(&quot;Value: &quot; + x));  //Value: Java
+
+       optional1 = Optional.empty();
+       optional1 = optional1.or( supplierString);
+       optional1.ifPresent( x -&gt; System.out.println(&quot;Value: &quot; + x)); //Value: Not Present</code></pre></li>
 </ul>
-<h4 id="Stream的终端操作"><a href="#Stream的终端操作" class="headerlink" title="Stream的终端操作"></a>Stream的终端操作</h4><p>终端操作执行中间操作链，并返回结果。终端操作我们就不一一介绍了，只介绍一下常用的操作。详细可看java.util.stream.Stream接口中的方法。</p>
+<h5 id="5-InputStream增强-since-9"><a href="#5-InputStream增强-since-9" class="headerlink" title="5.InputStream增强  @since 9"></a>5.InputStream增强  @since 9</h5><pre><code>        String lxs = &quot;java&quot;;
+        try (var inputStream = new ByteArrayInputStream(lxs.getBytes());
+             var outputStream = new ByteArrayOutputStream()) {
+            inputStream.transferTo(outputStream);
+            System.out.println(outputStream);    //java
+        }</code></pre><h4 id="HTTP-Client-API"><a href="#HTTP-Client-API" class="headerlink" title="HTTP Client API"></a>HTTP Client API</h4><p>改api支持同步和异步两种方式，下面是两种方式的示例：</p>
+<pre><code>        var request = HttpRequest.newBuilder()
+                .uri(URI.create(&quot;https://www.baidu.com/&quot;))
+                .build();
+        var client = HttpClient.newHttpClient();
+        // 同步
+        HttpResponse&lt;String&gt; response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        System.out.println(response.body());
+
+        // 异步
+        CompletableFuture&lt;HttpResponse&lt;String&gt;&gt; sendAsync = client.sendAsync(request, HttpResponse.BodyHandlers.ofString());
+        //这里会阻塞
+        HttpResponse&lt;String&gt; response1 = sendAsync.get();
+        System.out.println(response1.body());</code></pre><h4 id="直接运行java文件"><a href="#直接运行java文件" class="headerlink" title="直接运行java文件"></a>直接运行java文件</h4><p>我们都知道以前要运行一个.java文件，首先要javac编译成.class文件，然后在java执行：</p>
+<pre><code>//编译
+javac Java11.java
+//运行
+java Java11</code></pre><p>在java11中，只需要通过java一个命令就可以搞定</p>
+<pre><code>java Java11.java</code></pre><h3 id="移除内容"><a href="#移除内容" class="headerlink" title="移除内容"></a>移除内容</h3><ul>
+<li>com.sun.awt.AWTUtilities。</li>
+<li>sun.misc.Unsafe.defineClass   使用java.lang.invoke.MethodHandles.Lookup.defineClass来替代。</li>
+<li>Thread.destroy() 以及 Thread.stop(Throwable) 方法。</li>
+<li>sun.nio.ch.disableSystemWideOverlappingFileLockCheck 属性。</li>
+<li>sun.locale.formatasdefault 属性。</li>
+<li>jdk snmp 模块。</li>
+<li>javafx，openjdk 是从java10版本就移除了，oracle java10还尚未移除javafx ，而java11版本将javafx也移除了。</li>
+<li>Java Mission Control，从JDK中移除之后，需要自己单独下载。</li>
+<li>Root Certificates ：Baltimore Cybertrust Code Signing CA，SECOM ，AOL and Swisscom。</li>
+<li>在java11中将java9标记废弃的Java EE及CORBA模块移除掉。</li>
+</ul>
+<h3 id="完全支持Linux容器（包括docker）"><a href="#完全支持Linux容器（包括docker）" class="headerlink" title="完全支持Linux容器（包括docker）"></a>完全支持Linux容器（包括docker）</h3><p>许多运行在Java虚拟机中的应用程序（包括Apache Spark和Kafka等数据服务以及传统的企业应用程序）都可以在Docker容器中运行。但是在Docker容器中运行Java应用程序一直存在一个问题，那就是在容器中运行JVM程序在设置内存大小和CPU使用率后，会导致应用程序的性能下降。这是因为Java应用程序没有意识到它正在容器中运行。随着Java 10的发布，这个问题总算得以解决，JVM现在可以识别由容器控制组（cgroups）设置的约束。可以在容器中使用内存和CPU约束来直接管理Java应用程序，其中包括：</p>
 <ul>
-<li>void forEach(Consumer&lt;? super T&gt; action):<br>内部迭代(需要用户去做迭代，称为外部迭代。相反，Stream API使用内部迭代帮你把迭代做了)<pre><code>users.stream().forEach(user -&gt; System.out.println(user.getName()));</code></pre></li>
-<li>&lt;R, A&gt; R collect(Collector&lt;? super T, A, R&gt; collector):<br>收集、将流转换为其他形式，比如转换成List、Set、Map。collect方法是用Collector作为参数，Collector接口中方法的实现决定了如何对流执行收集操作(如收集到 List、Set、Map)。但是 Collectors 实用类提供了很多静态方法，可以方便地创建常见收集器实例。例举一些常用的：<pre><code>List&lt;User&gt; users = Lists.newArrayList();
-users.add(new User(15, &quot;A&quot;, ImmutableList.of(&quot;1元&quot;, &quot;5元&quot;)));
-users.add(new User(25, &quot;B&quot;, ImmutableList.of(&quot;10元&quot;, &quot;50元&quot;)));
-users.add(new User(21, &quot;C&quot;, ImmutableList.of(&quot;100元&quot;)));
-//收集名称到List
-List&lt;String&gt; nameList = users.stream().map(User::getName).collect(Collectors.toList());
-//收集名称到List
-Set&lt;String&gt; nameSet = users.stream().map(User::getName).collect(Collectors.toSet());
-//收集到map,名字作为key,user对象作为value
-Map&lt;String, User&gt; userMap = users.stream()
-              .collect(Collectors.toMap(User::getName, Function.identity(), (k1, k2) -&gt; k2));</code></pre></li>
-<li>其他终端操作：<ol>
-<li>boolean allMatch(Predicate&lt;? super T&gt; predicate); 检查是否匹配所有元素。</li>
-<li>boolean anyMatch(Predicate&lt;? super T&gt; predicate); 检查是否至少匹配一个元素。</li>
-<li>boolean noneMatch(Predicate&lt;? super T&gt; predicate); 检查是否没有匹配所有元素。</li>
-<li>Optional<code>&lt;T&gt;</code> findFirst(); 返回当前流中的第一个元素。</li>
-<li>Optional<code>&lt;T&gt;</code> findAny(); 返回当前流中的任意元素。</li>
-<li>long count(); 返回流中元素总数。</li>
-<li>Optional<code>&lt;T&gt;</code> max(Comparator&lt;? super T&gt; comparator); 返回流中最大值。</li>
-<li>Optional<code>&lt;T&gt;</code> min(Comparator&lt;? super T&gt; comparator); 返回流中最小值。</li>
-<li>T reduce(T identity, BinaryOperator<code>&lt;T&gt;</code> accumulator); 可以将流中元素反复结合起来，得到一个值。 返回 T。这是一个归约操作。</li>
-</ol>
-</li>
+<li>遵守容器中设置的内存限制</li>
+<li>在容器中设置可用的CPU</li>
+<li>在容器中设置CPU约束</li>
 </ul>
-<h4 id="Fork-Join框架"><a href="#Fork-Join框架" class="headerlink" title="Fork/Join框架"></a>Fork/Join框架</h4><p>上面我们提到过，说Stream的并行模式使用了Fork/Join框架，这里简单说下Fork/Join框架是什么？Fork/Join框架是java7中加入的一个并行任务框架，可以将任务拆分为多个小任务，每个小任务执行完的结果在合并成为一个结果。在任务的执行过程中使用工作窃取（work-stealing）算法，减少线程之间的竞争。</p>
-<ul>
-<li>Fork/Join图解<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1e40b7eac4b89?w=800&h=426&f=png&s=85559" alt></li>
-<li>工作窃取图解<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1e414bbc9585b?w=844&h=294&f=png&s=82893" alt><h4 id="Stream是怎么实现的"><a href="#Stream是怎么实现的" class="headerlink" title="Stream是怎么实现的"></a>Stream是怎么实现的</h4>先看下整体类图:蓝色箭头代表继承，绿色箭头代表实现，红色箭头代表内部类。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ef0992b6e39c?w=982&h=854&f=png&s=760332" alt><br>实际上Stream只有两种操作，中间操作、终端操作，中间操作只是一种标记，只有终端操作才会实际触发执行。所以Stream流水线式的操作大致应该是用某种方式记录中间操作，只有调用终端操作才会将所有的中间操作叠加在一起在一次迭代中全部执行。这里只做简单的介绍，想详细了解的可以参考下面的参考资料中的链接。</li>
-<li>操作怎么记录？<br><br>Stream的操作记录是通过ReferencePipeline记录的，ReferencePipeline有三个内部类Head、StatelessOp、StatefulOp，Stream中使用Stage的概念来描述一个完整的操作，并用某种实例化后的ReferencePipeline来代表Stage，Head用于表示第一个Stage，即调用诸如Collection.stream()方法产生的Stage，很显然这个Stage里不包含任何操作，StatelessOp和StatefulOp分别表示无状态和有状态的Stage，对应于无状态和有状态的中间操作。<br><img src="https://user-gold-cdn.xitu.io/2019/7/24/16c1f94ee4740035?w=1000&h=265&f=png&s=37101" alt></li>
-<li>操作怎么叠加？<br><br>操作是记录完了，但是前面的Stage并不知道后面Stage到底执行了哪种操作，以及回调函数是哪种形式。这就需要有某种协议来协调相邻Stage之间的调用关系。<br>这种协议由Sink接口完成，Sink接口包含的方法如下表所示:</li>
-</ul>
-<ol>
-<li>void begin(long size)，开始遍历元素之前调用该方法，通知Sink做好准备。</li>
-<li>void end()，所有元素遍历完成之后调用，通知Sink没有更多的元素了。</li>
-<li>boolean cancellationRequested()，是否可以结束操作，可以让短路操作尽早结束。</li>
-<li>void accept(T t)，遍历元素时调用，接受一个待处理元素，并对元素进行处理。Stage把自己包含的操作和回调方法封装到该方法里，前一个Stage只需要调用当前Stage.accept(T t)方法就行了。<br></li>
-</ol>
-<p>每个Stage都会将自己的操作封装到一个Sink里，前一个Stage只需调用后一个Stage的accept()方法即可，并不需要知道其内部是如何处理的。有了Sink对操作的包装，Stage之间的调用问题就解决了，执行时只需要从流水线的head开始对数据源依次调用每个Stage对应的Sink.{begin(), accept(), cancellationRequested(), end()}方法就可以了。</p>
-<ul>
-<li>操作怎么执行？<br><img src="https://user-gold-cdn.xitu.io/2019/7/24/16c1fac591c62598?w=600&h=701&f=png&s=60869" alt><br>Sink完美封装了Stream每一步操作，并给出了[处理-&gt;转发]的模式来叠加操作。这一连串的齿轮已经咬合，就差最后一步拨动齿轮启动执行。是什么启动这一连串的操作呢？也许你已经想到了启动的原始动力就是结束操作(Terminal Operation)，一旦调用某个结束操作，就会触发整个流水线的执行。<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><a href="https://ifeve.com/stream" target="_blank" rel="noopener">https://ifeve.com/stream</a><br><br><a href="https://www.ibm.com/developerworks/cn/java/j-lo-java8streamapi/" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/java/j-lo-java8streamapi/</a><br><br><a href="https://segmentfault.com/a/1190000016781127" target="_blank" rel="noopener">https://segmentfault.com/a/1190000016781127</a><br><br><a href="https://github.com/CarpenterLee/JavaLambdaInternals/blob/master/6-Stream%20Pipelines.md" target="_blank" rel="noopener">https://github.com/CarpenterLee/JavaLambdaInternals/blob/master/6-Stream%20Pipelines.md</a><br></li>
-</ul>
+<p><code>Java 10的这个改进在Docker for Mac、Docker for Windows以及Docker Enterprise Edition等环境均有效。</code></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p> <img src="https://i.loli.net/2019/11/05/uesYIQnMUgOdJpN.png" alt="Java版本特性.png"></p>
 <blockquote>
 <p>感谢大家的观看，希望多多关注哦。 如有错误，烦请指正。</p>
 </blockquote>
@@ -748,9 +1013,9 @@ Map&lt;String, User&gt; userMap = users.stream()
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《「Java8系列」流式编程Stream》
+                    《赶快看看Java11，不然你就out了》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/04/java8-xi-lie-liu-shi-bian-cheng-stream/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/05/gan-kuai-kan-kan-java11-bu-ran-ni-jiu-out-liao/" property="cc:attributionName"
                rel="cc:attributionURL">
                 李晓双
             </a> 采用
@@ -791,7 +1056,7 @@ Map&lt;String, User&gt; userMap = users.stream()
         repo: 'codeefficient.github.io',
         owner: 'Codeefficient',
         admin: "Codeefficient",
-        id: '2019/11/04/java8-xi-lie-liu-shi-bian-cheng-stream/',
+        id: '2019/11/05/gan-kuai-kan-kan-java11-bu-ran-ni-jiu-out-liao/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1074,9 +1339,10 @@ Map&lt;String, User&gt; userMap = users.stream()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2019/11/05/gan-kuai-kan-kan-java11-bu-ran-ni-jiu-out-liao/">
                     <div class="card-image">
@@ -1098,9 +1364,9 @@ JDK11 是一个长期支持版。
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-05
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
@@ -1113,6 +1379,7 @@ JDK11 是一个长期支持版。
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1131,23 +1398,23 @@ JDK11 是一个长期支持版。
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/03/java8-xi-lie-shen-qi-de-han-shu-shi-jie-kou/">
+                <a href="/2019/11/04/java8-xi-lie-liu-shi-bian-cheng-stream/">
                     <div class="card-image">
                         
-                        <img src="https://img.ctolib.com/uploadImg/20190422/20190422084602_571.jpg" class="responsive-img" alt="「Java8系列」神奇的函数式接口">
+                        <img src="https://img.ctolib.com/uploadImg/20190422/20190422084602_571.jpg" class="responsive-img" alt="「Java8系列」流式编程Stream">
                         
-                        <span class="card-title">「Java8系列」神奇的函数式接口</span>
+                        <span class="card-title">「Java8系列」流式编程Stream</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言在上一篇Lambda的讲解中我们就提到过函数式接口，比如：Consumer&lt;String&gt; consumer = (s) -&gt; System.out.println(s);其中Consumer就是一个函数式接口。这里是
+                            前言「Java8系列」神秘的Lambda「Java8系列」神奇的函数式接口继上两篇之后，本文已经java8系列的第三篇了。本篇文章比较长，但我希望大家都能认真读完。读不完可以先收藏，在找时间读。没看过前两篇的可以点上边的链接看看，前两篇文章
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-03
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-04
                             </span>
                         <span class="publish-author">
                             

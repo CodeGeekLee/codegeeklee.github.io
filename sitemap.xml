@@ -2,30 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://godweiyang.com/2019/11/04/java8-xi-lie-liu-shi-bian-cheng-stream/</loc>
+    <loc>https://godweiyang.com/2019/11/02/go-xue-xi-bi-ji-2-go-yu-yan-you-shi-me-zu-cheng/</loc>
     
-    <lastmod>2019-11-04T02:43:58.078Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://godweiyang.com/2019/10/30/go-xue-xi-bi-ji-1-chu-shi-go/</loc>
-    
-    <lastmod>2019-11-03T09:58:48.674Z</lastmod>
+    <lastmod>2019-11-05T02:34:14.689Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://godweiyang.com/2019/11/03/java8-xi-lie-shen-qi-de-han-shu-shi-jie-kou/</loc>
     
-    <lastmod>2019-11-03T04:00:08.017Z</lastmod>
+    <lastmod>2019-11-05T02:34:14.687Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://godweiyang.com/2019/11/02/go-xue-xi-bi-ji-2-go-yu-yan-you-shi-me-zu-cheng/</loc>
+    <loc>https://godweiyang.com/2019/10/31/java8-xi-lie-shen-mi-de-lambda/</loc>
     
-    <lastmod>2019-11-02T02:43:49.784Z</lastmod>
+    <lastmod>2019-11-05T02:34:14.683Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://godweiyang.com/2019/11/04/java8-xi-lie-liu-shi-bian-cheng-stream/</loc>
+    
+    <lastmod>2019-11-05T02:34:14.679Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://godweiyang.com/2019/10/30/go-xue-xi-bi-ji-1-chu-shi-go/</loc>
+    
+    <lastmod>2019-11-05T02:34:14.675Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://godweiyang.com/2019/11/05/gan-kuai-kan-kan-java11-bu-ran-ni-jiu-out-liao/</loc>
+    
+    <lastmod>2019-11-05T02:30:07.234Z</lastmod>
     
   </url>
   
@@ -33,13 +47,6 @@
     <loc>https://godweiyang.com/2019/11/01/junit4-jiao-cheng-shi-jian/</loc>
     
     <lastmod>2019-11-01T03:14:43.876Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://godweiyang.com/2019/10/31/java8-xi-lie-shen-mi-de-lambda/</loc>
-    
-    <lastmod>2019-10-31T07:50:58.321Z</lastmod>
     
   </url>
   

@@ -4,11 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="分类, Java Go lixiaoshuang 后端 MySql Redis Spring SpringBoot SpringCloud MQ">
+    <meta name="keywords" content="标签: Java11, Java Go lixiaoshuang 后端 MySql Redis Spring SpringBoot SpringCloud MQ">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
     <meta name="360-site-verification" content>
-    <meta name="description" content="分类 | 码出高效">
+    <meta name="description" content="标签: Java11 | 码出高效">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>分类 | 码出高效</title>
+    <title>标签: Java11 | 码出高效</title>
     <link rel="icon" type="image/png" href="/blogicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -297,7 +297,7 @@
                     lixiaoshuang
                  -->
                 
-                    分类
+                    标签
                 
             </div>
 
@@ -321,42 +321,67 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 
     
 
-<div id="category-cloud" class="container chip-container">
+<div id="tags" class="container chip-container">
     <div class="card">
         <div class="card-content">
             <div class="tag-title center-align">
-                <i class="fa fa-bookmark"></i>&nbsp;&nbsp;文章分类
+                <i class="fa fa-tags"></i>&nbsp;&nbsp;文章标签
             </div>
             <div class="tag-chips">
                 
                 
-                
-                <a href="/categories/测试/" title="测试: 1">
+                <a href="/tags/JUnit4/" title="JUnit4: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F9EBEA;">测试
+                            data-tagname="JUnit4" style="background-color: #F9EBEA;">JUnit4
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/GO/" title="GO: 2">
+                <a href="/tags/单元测试/" title="单元测试: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F5EEF8;">GO
+                            data-tagname="单元测试" style="background-color: #F5EEF8;">单元测试
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Go/" title="Go: 2">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Go" style="background-color: #D5F5E3;">Go
                         <span class="tag-length">2</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/Java/" title="Java: 4">
+                <a href="/tags/Java/" title="Java: 3">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #D5F5E3;">Java
-                        <span class="tag-length">4</span>
+                            data-tagname="Java" style="background-color: #E8F8F5;">Java
+                        <span class="tag-length">3</span>
                     </span>
                 </a>
                 
+                
+                <a href="/tags/Java8/" title="Java8: 3">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            data-tagname="Java8" style="background-color: #FEF9E7;">Java8
+                        <span class="tag-length">3</span>
+                    </span>
+                </a>
+                
+                
+                <a href="/tags/Java11/" title="Java11: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-active "
+                            data-tagname="Java11" style="background-color: #F8F9F9;">Java11
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
                 
             </div>
         </div>
@@ -364,64 +389,45 @@ $('.bg-cover').css('background-image', 'url(/medias/banner/' + new Date().getDay
 </div>
 
     
-    <style type="text/css">
-    #category-radar {
-        width: 100%;
-        height: 360px;
-    }
-</style>
 
-<div class="container" data-aos="fade-up">
-    <div class="card">
-        <div id="category-radar" class="card-content"></div>
-    </div>
-</div>
-
-<script type="text/javascript" src="/libs/echarts/echarts.min.js"></script>
-<script type="text/javascript">
-    let radarChart = echarts.init(document.getElementById('category-radar'));
-
-    
-
-    let option = {
-        title: {
-            left: 'center',
-            text: '文章分类雷达图',
-            textStyle: {
-                fontWeight: 500,
-                fontSize: 22
-            }
-        },
-        tooltip: {},
-        radar: {
-            name: {
-                textStyle: {
-                    color: '#3C4858'
-                }
-            },
-            indicator: [{"name":"测试","max":5},{"name":"GO","max":5},{"name":"Java","max":5}],
-            nameGap: 5,
-            center: ['50%','55%'],
-            radius: '66%'
-        },
-        series: [{
-            type: 'radar',
-            color: ['#3ecf8e'],
-            itemStyle: {normal: {areaStyle: {type: 'default'}}},
-            data : [
-                {
-                    value : [1,2,4],
-                    name : '文章分类数量'
-                }
-            ]
-        }]
-    };
-
-    radarChart.setOption(option);
-</script>
-    
-
+    <article id="articles" class="container articles">
+        <div class="row tags-posts">
+            
+            
+            <div class="article tag-post col s12 m6 l4" data-tags="Java11" data-aos="fade-up">
+                <div class="card">
+                    <a href="/2019/11/05/gan-kuai-kan-kan-java11-bu-ran-ni-jiu-out-liao/">
+                        <div class="card-image tag-image">
+                            
+                            <img src="https://i.loli.net/2019/11/05/hSzblLG8gTKoCNt.jpg" class="responsive-img" alt="赶快看看Java11，不然你就out了">
+                            
+                            <span class="card-title">赶快看看Java11，不然你就out了</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-05
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fa fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/Java/" class="post-category" target="_blank">
+                                Java
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </article>
 </main>
+
 
     <footer class="page-footer bg-color">
     <div class="container row center-align">
