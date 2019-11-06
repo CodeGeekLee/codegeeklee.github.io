@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>「Java8系列」NPE神器 Optional</title>
+      <link href="/2019/11/06/java8-xi-lie-npe-shen-qi-optional/"/>
+      <url>/2019/11/06/java8-xi-lie-npe-shen-qi-optional/</url>
+      
+        <content type="html"><![CDATA[<p><a href="https://juejin.im/post/5d2d15825188253d7201d297" target="_blank" rel="noopener">「Java8系列」神秘的Lambda</a><br><br><a href="https://juejin.im/post/5d2ff837f265da1bd424b710" target="_blank" rel="noopener">「Java8系列」神奇的函数式接口</a><br><br><a href="https://juejin.im/post/5d37bbd451882551c37fbc04" target="_blank" rel="noopener">「Java8系列」流式编程Stream</a></p><h4 id="Optional类入门"><a href="#Optional类入门" class="headerlink" title="Optional类入门"></a>Optional类入门</h4><p>Optional<code>&lt;T&gt;</code> 类(java.util.Optional) 是一个容器类，代表一个值存在或不存在，原来用 null 表示一个值不存在，现在Optional可以更好的表达这个概念。并且可以避免空指针异常。你可以把Optional对象看成一种特殊的集合数据，它至多包含一个元素。</p><p><strong>常用方法</strong>:</p><ul><li>Optional.of(T t) : 将指定值用 Optional 封装之后返回，如果该值为 null，则抛出一个 NullPointerException 异常。</li><li>Optional.empty() : 创建一个空的 Optional 实例。</li><li>Optional.ofNullable(T t) : 将指定值用 Optional 封装之后返回，如果该值为 null，则返回一个空的 Optional 对象。</li><li>get() : 如果该值存在，将该值用 Optional 封装返回，否则抛出一个 NoSuchElementException 异常。</li><li>orElse(T t) : 如果调用对象包含值，返回该值，否则返回t。</li><li>orElseGet(Supplier s) : 如果调用对象包含值，返回该值，否则返回 s 获取的值。</li><li>orElseThrow() ：它会在对象为空的时候抛出异常。</li><li>map(Function f) : 如果值存在，就对该值执行提供的 mapping 函数调用。</li><li>flatMap(Function mapper) : 如果值存在，就对该值执行提供的mapping 函数调用，返回一个 Optional 类型的值，否则就返回一个空的 Optional 对象。</li></ul><p><code>注意：Optional类的设计初衷仅仅是要支持能返回Optional对象的语法，并未考虑作为类的字段使用，也没有实现序列化接口，在领域模型中使用Optional，有可能引发程序故障。</code></p><h4 id="使用Optional实战"><a href="#使用Optional实战" class="headerlink" title="使用Optional实战"></a>使用Optional实战</h4><p>用Optional封装可能为null的值，我们在项目中很多时候都会遇到，掉一个方法然后返回一个null，最后需要不断的判空。比如获取Map中的不含指定键的值，它的get方法返回的就是一个null。</p><pre><code> //例如： Object value = map.get(&quot;key&quot;); //使用Optional封装结果后可以这么写： Optional&lt;Object&gt; value = Optional.ofNullable(map.get(&quot;key&quot;)); /** * 如果想在获取为null以后给个默认值，可以这么写： * orElse和orElseGet的区别是当Optional的值是空值时，无论orElse还是orElseGet都会执行；而当返回的Optional有值时，orElse会执行，而orElseGet不会执行。 */ Object value = Optional.ofNullable(map.get(&quot;key&quot;)).orElse(&quot;value&quot;); Object value1 = Optional.ofNullable(map.get(&quot;key&quot;)).orElseGet(()-&gt;&quot;value&quot;);</code></pre><p> 由于某种原因，函数无法返回某个值，这时除了返回null，Java API比较常见的替代做法是抛出一个异常。这种情况比较典型的例子是使用静态方法Integer.parseInt(String)，将String转换为int。在这个例子中，如果String无法解析到对应的整型，该方法就抛出一个NumberFormatException。最后的效果是，发生String无法转换为int时，代码发出一个遭遇非法参数的信号，唯一的不同是，这次你需要使用try/catch 语句，而不是使用if条件判断来控制一个变量的值是否非空。</p><p>你也可以用空的Optional对象，对遭遇无法转换的String时返回的非法值进行建模，这时你期望parseInt的返回值是一个optional。我们无法修改最初的Java方法，但是这无碍我们进 行需要的改进，你可以实现一个工具方法，将这部分逻辑封装于其中，最终返回一个我们希望的 Optional对象，代码如下所示。</p><pre><code>public static Optional&lt;Integer&gt; stringToInt(String s) {try {         //如果String能转换为对应的Integer，将其封装在Optioal对象中返回        return Optional.of(Integer.parseInt(s));    } catch (NumberFormatException e) {        //否则返回一个空的Optional对象        return Optional.empty();    }}</code></pre><p>Optional就是讲到这里，这个实在没什么好说的了，大家自己实践吧。</p><blockquote><p>感谢大家的观看，希望多多关注哦。 如有错误，烦请指正。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> Java8 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>赶快看看Java11，不然你就out了</title>
       <link href="/2019/11/05/gan-kuai-kan-kan-java11-bu-ran-ni-jiu-out-liao/"/>
       <url>/2019/11/05/gan-kuai-kan-kan-java11-bu-ran-ni-jiu-out-liao/</url>

@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://godweiyang.com/"/>
-  <updated>2019-11-05T02:30:07.234Z</updated>
+  <updated>2019-11-06T02:52:49.995Z</updated>
   <id>https://godweiyang.com/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>「Java8系列」NPE神器 Optional</title>
+    <link href="https://godweiyang.com/2019/11/06/java8-xi-lie-npe-shen-qi-optional/"/>
+    <id>https://godweiyang.com/2019/11/06/java8-xi-lie-npe-shen-qi-optional/</id>
+    <published>2019-11-06T02:51:49.000Z</published>
+    <updated>2019-11-06T02:52:49.995Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;&lt;a href=&quot;https://juejin.im/post/5d2d15825188253d7201d297&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;「Java8系列」神秘的Lambda&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="Java" scheme="https://godweiyang.com/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="https://godweiyang.com/tags/Java/"/>
+    
+      <category term="Java8" scheme="https://godweiyang.com/tags/Java8/"/>
+    
+  </entry>
   
   <entry>
     <title>赶快看看Java11，不然你就out了</title>
