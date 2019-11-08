@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://godweiyang.com/"/>
-  <updated>2019-11-06T02:52:49.995Z</updated>
+  <updated>2019-11-08T12:04:55.048Z</updated>
   <id>https://godweiyang.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>通用点赞设计思路</title>
+    <link href="https://godweiyang.com/2019/11/08/tong-yong-dian-zan-she-ji-si-lu/"/>
+    <id>https://godweiyang.com/2019/11/08/tong-yong-dian-zan-she-ji-si-lu/</id>
+    <published>2019-11-08T12:01:22.000Z</published>
+    <updated>2019-11-08T12:04:55.048Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;点赞作为一个高频率的操作，如果每次操作都读写数据库会增加数据库的压力，所以采用缓存+定时任务来实现。点赞数据是在redis中缓存半小时，同时定时任务是每隔5分钟执行一次，做持久化存储，这里的缓存时间和任务执行时间可根据项目情况而定。&lt;/p&gt;
+&lt;h3 id=&quot;优点&quot;&gt;&lt;a
+        
+      
+    
+    </summary>
+    
+      <category term="实战" scheme="https://godweiyang.com/categories/%E5%AE%9E%E6%88%98/"/>
+    
+    
+      <category term="Java" scheme="https://godweiyang.com/tags/Java/"/>
+    
+      <category term="Redis" scheme="https://godweiyang.com/tags/Redis/"/>
+    
+  </entry>
   
   <entry>
     <title>「Java8系列」NPE神器 Optional</title>
