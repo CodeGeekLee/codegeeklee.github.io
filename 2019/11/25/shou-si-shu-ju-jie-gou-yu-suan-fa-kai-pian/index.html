@@ -4,11 +4,11 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="「Java8系列」流式编程Stream, Java Go lixiaoshuang 后端 MySql Redis Spring SpringBoot SpringCloud MQ">
+    <meta name="keywords" content="手撕数据结构与算法开篇, Java Go lixiaoshuang 后端 MySql Redis Spring SpringBoot SpringCloud MQ">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
     <meta name="360-site-verification" content>
-    <meta name="description" content="前言「Java8系列」神秘的Lambda「Java8系列」神奇的函数式接口继上两篇之后，本文已经java8系列的第三篇了。本篇文章比较长，但我希望大家都能认真读完。读不完可以先收藏，在找时间读。没看过前两篇的可以点上边的链接看看，前两篇文章">
+    <meta name="description" content="1. 浪子回头2019年，这个不平凡的一年，中美贸易战、各个大厂裁员。造成了现在互联网行情不好，形势很严峻啊。有的人说今年是互联网过去十年中最差的一年，也可能是未来十年中最好的一年。身处这样乱世的我们怎么办？我也听很多朋友说，今年的面试都比">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +16,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>「Java8系列」流式编程Stream | 码出高效</title>
+    <title>手撕数据结构与算法开篇 | 码出高效</title>
     <link rel="icon" type="image/png" href="/blogicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -304,13 +304,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://img.ctolib.com/uploadImg/20190422/20190422084602_571.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2019/11/25/FHzyohEgGIRlMQP.jpg')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        「Java8系列」流式编程Stream
+                        手撕数据结构与算法开篇
                     </div>
                 </div>
             </div>
@@ -425,8 +425,8 @@
                             <span class="chip bg-color">Java</span>
                         </a>
                         
-                        <a href="/tags/Java8/" target="_blank">
-                            <span class="chip bg-color">Java8</span>
+                        <a href="/tags/数据结构与算法/" target="_blank">
+                            <span class="chip bg-color">数据结构与算法</span>
                         </a>
                         
                     </div>
@@ -437,8 +437,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/Java/" class="post-category" target="_blank">
-                            Java
+                        <a href="/categories/数据结构与算法/" class="post-category" target="_blank">
+                            数据结构与算法
                         </a>
                         
                     </div>
@@ -449,7 +449,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-04
+                    2019-11-25
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -463,14 +463,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    3.6k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    11 分
+                    13 分
                 </div>
                 
                 
@@ -486,109 +486,196 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p><a href="https://juejin.im/post/5d2d15825188253d7201d297" target="_blank" rel="noopener">「Java8系列」神秘的Lambda</a><br><br><a href="https://juejin.im/post/5d2ff837f265da1bd424b710" target="_blank" rel="noopener">「Java8系列」神奇的函数式接口</a><br><br>继上两篇之后，本文已经java8系列的第三篇了。本篇文章比较长，但我希望大家都能认真读完。读不完可以先收藏，在找时间读。没看过前两篇的可以点上边的链接看看，前两篇文章算是对是用Stream铺垫的一点基础吧，不过不看也可以学会使用Stream，但看了会有助于更好的理解和使用。在没有深入了解之前，我以为Stream也是数据的载体，但后来发现并不是。那么它到底是什么？听我慢慢道来。</p>
-<h4 id="什么是Stream？"><a href="#什么是Stream？" class="headerlink" title="什么是Stream？"></a>什么是Stream？</h4><p>Stream它并不是一个容器，它只是对容器的功能进行了增强，添加了很多便利的操作,例如查找、过滤、分组、排序等一系列的操作。并且有串行、并行两种执行模式，并行模式充分的利用了多核处理器的优势，使用fork/join框架进行了任务拆分，同时提高了执行速度。简而言之，Stream就是提供了一种高效且易于使用的处理数据的方式。</p>
+                <h3 id="1-浪子回头"><a href="#1-浪子回头" class="headerlink" title="1. 浪子回头"></a>1. 浪子回头</h3><p>2019年，这个不平凡的一年，中美<code>贸易战</code>、各个大厂<code>裁员</code>。造成了现在互联网行情不好，形势很严峻啊。有的人说今年是互联网过去十年中最差的一年，也可能是未来十年中最好的一年。身处这样乱世的我们怎么办？我也听很多朋友说，今年的面试都比较严格，特点是<code>&quot;要求高、薪资低&quot;</code>。也经常听见他们说某某大厂考了个手写算法，结果当场挂了。身为程序员的我们，再这样行业形势严峻、竞争压力大的情况下，只有不断提升自身能力，以确保在行业内能有个<code>立足之地</code>。</p>
+<p>《数据结构与算法》在我学生时代就是一门让我望而止步的课程。听着名字就感觉很晦涩难懂、需要大量的数学知识做铺垫。相信很多人也都和我一样，上学的时候学的一知半解，到了工作以后也很少用到就不了了之了。但是它却成为了你面试、寻找好的平台的障碍。很多大厂都很看中程序员的<code>基本功</code>，所以在面试中算法就编程了常考题目，为什么呢？因为基础知识就像是一座大楼的地基，它能够决定你技术的<code>高度</code>与<code>深度</code>。所以一般大厂都是看中你有没有这个技术发展的潜力。<code>(&quot;所以大家要夯实基本功了。&quot;)</code></p>
+<p>在我看来后端程序员应该学的有三大基础知识<code>&quot;数据结构与算法&quot;</code>、<code>&quot;计算机系统&quot;</code>、<code>&quot;操作系统Linux&quot;</code>。在这个人人都必须要手撕算法的时代，彻夜难眠的我（<code>纯属扯淡</code>）决定带领大家一起学习三大基础知识，本次开篇系列是《手撕数据结构与算法》，每一个系列更完就会开启下一个系列，大家不要着急。</p>
+<p><code>注意,注意前方高能======&gt;(广告植入)</code>  </p>
+<blockquote>
+<p>如果你对我的这个系列感兴趣可以关注我的公众号，带你走上”超神之路、拿高薪offer、当上技术专家、出任个大厂、迎娶<a href="https://baike.baidu.com/item/白富美/9462281" target="_blank" rel="noopener">白富美</a>、走上人生巅峰，想想还有点小激动。” (请允许我吹个🐂)</p>
+<p>来了  来了  他来了  他带着二维码来了！！！</p>
+<p><img src="https://i.loli.net/2019/11/24/fXyOTLCBcGMNKoj.png" alt="欢迎扫码关注哦！！！"></p>
+</blockquote>
+<h3 id="2-数学知识复习"><a href="#2-数学知识复习" class="headerlink" title="2. 数学知识复习"></a>2. 数学知识复习</h3><p>在我们系统的学习数据结构与算法之前，我们先简单的复习几个数学知识，相信大家也都忘的差不多了，是不是都学完了又还给老师了呢？嫑急，跟我一起来复习一下。</p>
+<h4 id="2-1-指数"><a href="#2-1-指数" class="headerlink" title="2.1. 指数"></a>2.1. 指数</h4><p>指数是幂运算aⁿ(a≠0)中的一个参数，a为底数，n为指数，指数位于底数的右上角，幂运算表示指数个底数相乘。当n是一个正整数，a<strong>ⁿ</strong>表示n个a连乘。当n=0时，aⁿ=1。《百度百科》</p>
 <ul>
-<li>特点：</li>
+<li><code>指数：就是aⁿ中的n。</code></li>
+<li><code>底数：就是aⁿ的a</code></li>
+<li><code>幂运算：指数个底数相乘。</code></li>
 </ul>
-<ol>
-<li>Stream自己不会存储元素。 </li>
-<li>Stream的操作不会改变源对象。相反，他们会返回一个持有结果的新Stream。</li>
-<li>Stream 操作是延迟执行的。它会等到需要结果的时候才执行。也就是执行终端操作的时候。</li>
-</ol>
+<p><strong>幂运算公式:</strong></p>
 <ul>
-<li>图解：<br><img src="https://user-gold-cdn.xitu.io/2019/7/22/16c198ac61885693?w=1090&h=436&f=png&s=38873" alt="在这里插入图片描述"><br>一个Stream的操作就如上图，在一个管道内，分为三个步骤，第一步是创建Stream，从集合、数组中获取一个流，第二步是中间操作链，对数据进行处理。第三步是终端操作，用来执行中间操作链，返回结果。<h4 id="怎么创建Stream"><a href="#怎么创建Stream" class="headerlink" title="怎么创建Stream?"></a>怎么创建Stream?</h4></li>
-<li>由集合创建：<br>Java8 中的 Collection 接口被扩展，提供了两个获取流的方法,这两个方法是default方法，也就是说所有实现Collection接口的接口都不需要实现就可以直接使用：</li>
+<li>$a^{n}\cdot a^{m} =  a^{n+m}$    同底数相乘，底数不变，指数相加。</li>
+<li>$a^{n} / a^{m} =  a^{n-m}$    同底数相除，底数不变，指数相减。</li>
+<li>$(a^{n})^m = a^{am} $        底数的n次方的m次方，底数不变，指数相乘。</li>
+<li>$(ab)^{n}=a^{n}\cdot b^{n}$    a乘b的n次方，等于a的n次方乘与b的n次方。</li>
 </ul>
-<ol>
-<li>default Stream<e> stream() : 返回一个顺序流。</e></li>
-<li>default Stream<e> parallelStream() : 返回一个并行流。<br><pre><code> 例如：
-     List&lt;Integer&gt; integerList = new ArrayList&lt;&gt;();
-     integerList.add(1);
-     integerList.add(2);
-     Stream&lt;Integer&gt; stream = integerList.stream();
-     Stream&lt;Integer&gt; stream1 = integerList.parallelStream();</code></pre></e></li>
-</ol>
+<h4 id="2-2-对数"><a href="#2-2-对数" class="headerlink" title="2.2. 对数"></a>2.2. 对数</h4><p>$ a^{x}=n$  如果a的x次方等于N（a&gt;0，且a不等于1），那么数x叫做以a为底N的对数（logarithm），记作$x=log_{a}N$。其中，a叫做对数的<a href="https://baike.baidu.com/item/底数/5416651" target="_blank" rel="noopener">底数</a>，N叫做<a href="https://baike.baidu.com/item/真数/326681" target="_blank" rel="noopener">真数</a>。《百度百科》</p>
+<p><code>在计算机科学中，除非有特别的声明，否则所有的对数都是以2为底的。</code></p>
+<p><strong>公式：</strong></p>
 <ul>
-<li>由数组创建：<br>Java8 中的 Arrays 的静态方法 stream() 可以获取数组流:</li>
+<li>$logAB = logA+logB$  ;  A,B&gt;0 </li>
+<li>$log_{A}B =\frac{log_{c}B}{log_{c}A}$   ;  A,B,C &gt; 0,  a≠1</li>
 </ul>
-<ol>
-<li>static <t> Stream<t> stream(T[] array): 返回一个流</t></t></li>
-<li>重载形式，能够处理对应基本类型的数组:<br><br>public static IntStream stream(int[] array)<br><br>public static LongStream stream(long[] array)<br><br>public static DoubleStream stream(double[] array)<br><pre><code> 例如：
-     int[] intArray = {1,2,3};
-     IntStream stream = Arrays.stream(intArray);</code></pre></li>
-</ol>
+<p>简单列了两个公式，大家看看就行了，知道一下啥是<code>对数</code>。</p>
+<h3 id="3-时间复杂度"><a href="#3-时间复杂度" class="headerlink" title="3. 时间复杂度"></a>3. 时间复杂度</h3><p>对于算法<code>时间复杂度</code>，可能有的朋友可能想了，不就是估算一段代码的执行时间嘛，我们可以搞个监控啊，看看一下每个接口的耗时不就好了，何必那么麻烦，还要分析下时间复杂度。但是这个监控属于事后操作，只有代码在<code>运行时</code>，才能知道你写的代码<code>效率</code>高不高，那么如何在写代码的时候就评估一段代码的执行效率呢，这个时候就需要时间复杂度来分析了。大家平常写代码可以结合时间复杂度和监控做好<code>事前</code>、<code>事后</code>的分析，更好的优化代码。</p>
+<p><code>时间复杂度是衡量算法的时间度量，用来评估一段代码的效率，记作：</code>$T(n) = O(f(n))$<code>,它表示随着问题规模n的增大，算法执行时间的增长率和</code>$f(n)$<code>相同。</code>$f(n)$<code>是语句所执行时间函数。</code></p>
+<h4 id="3-1-大O表示法"><a href="#3-1-大O表示法" class="headerlink" title="3.1 大O表示法"></a>3.1 大O表示法</h4><p>因为渐进时间复杂度使用大写O来表示，所以也称<code>大O表示法</code>。例如: $O(f(n))$。</p>
+<p><strong>常见时间复杂度：</strong></p>
+<table>
+<thead>
+<tr>
+<th align="center">复杂度</th>
+<th align="center">非正式术语</th>
+<th align="center">例子</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">$O(1)$</td>
+<td align="center">常数阶</td>
+<td align="center">$12$</td>
+</tr>
+<tr>
+<td align="center">$O(logn)$</td>
+<td align="center">对数阶</td>
+<td align="center">$5log_{2}n+10$</td>
+</tr>
+<tr>
+<td align="center">$O(n)$</td>
+<td align="center">线性阶</td>
+<td align="center">$2n+3$</td>
+</tr>
+<tr>
+<td align="center">$O(nlogn)$</td>
+<td align="center">nlogn阶</td>
+<td align="center">$2n+3log_{2}n+2$</td>
+</tr>
+<tr>
+<td align="center">$O(n^{2})$</td>
+<td align="center">平方阶</td>
+<td align="center">$3n^{2}$</td>
+</tr>
+<tr>
+<td align="center">$O(n^{3})$</td>
+<td align="center">立方阶</td>
+<td align="center">$2n^{3}+5$</td>
+</tr>
+<tr>
+<td align="center">$O(2^{n})$</td>
+<td align="center">指数阶</td>
+<td align="center">$2^{n}$</td>
+</tr>
+</tbody></table>
+<p>常见时间复杂度所耗费时间从小到大依次是：</p>
+<p>$O(1)$ &lt; $O(logn)$ &lt; $O(n)$ &lt; $O(nlogn)$ &lt; $O(n^{2})$ &lt; $O(n^{3})$ &lt; $O(2^{n})$</p>
+<p><strong>推导大O的方法：</strong></p>
 <ul>
-<li>由值创建:<br>可以使用静态方法 Stream.of(), 通过显示值 创建一个流。它可以接收任意数量的参数。</li>
+<li>用1取代运行时间中的所有常数。例如：$O(2n^{2})$ ==&gt; $O(n^{2})$ </li>
+<li>在函数中只保留最高阶项。例如 $O(2n^{2})+O(n)$ ==&gt; $O(2n^{2})$ </li>
+<li>如果最高阶项存在并且不是1，则去掉与之相乘的系数。例如：$O(2n^{2})$ ==&gt; $O(n^{2})$ </li>
 </ul>
-<ol>
-<li>public static<t> Stream<t> of(T… values) : 返回一个流。<br><pre><code> 例如：
- Stream&lt;Integer&gt; integerStream = Stream.of(1, 2, 3, 4, 5, 6, 7, 8);</code></pre></t></t></li>
-</ol>
-<ul>
-<li>由函数创建：创建无限流<br>可以使用静态方法 Stream.iterate() 和 Stream.generate()创建无限流。</li>
-</ul>
-<ol>
-<li>迭代<br>public static<t> Stream<t> iterate(final T seed, final UnaryOperator<t> f)</t></t></t></li>
-<li>生成<br>public static<t> Stream<t> generate(Supplier<t> s) <pre><code> 例如：
- Stream.generate(Math::random).limit(5).forEach(System.out::print); 
- List&lt;Integer&gt; collect = Stream.iterate(0,i -&gt; i + 1).limit(5).collect(Collectors.toList());</code></pre><code>注意：使用无限流一定要配合limit截断，不然会无限制创建下去。</code><h4 id="Stream的中间操作"><a href="#Stream的中间操作" class="headerlink" title="Stream的中间操作"></a>Stream的中间操作</h4>如果Stream只有中间操作是不会执行的，当执行终端操作的时候才会执行中间操作，这种方式称为延迟加载或惰性求值。多个中间操作组成一个中间操作链，只有当执行终端操作的时候才会执行一遍中间操作链，具体是因为什么我们在后面再说明。下面看下Stream有哪些中间操作。</t></t></t></li>
-</ol>
-<ul>
-<li>Stream<code>&lt;T&gt;</code> distinct()：<br>去重，通过流所生成元素的 hashCode() 和 equals() 去除重复元素。<br><img src="https://user-gold-cdn.xitu.io/2019/7/22/16c1a26c389e630e?w=403&h=205&f=jpeg&s=30693" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ce3dc266d996?w=1464&h=1346&f=png&s=269768" alt></li>
-<li>Stream<code>&lt;T&gt;</code> filter(Predicate&lt;? super T&gt; predicate):<br>Predicate函数在上一篇当中我们已经讲过，它是断言型接口，所以filter方法中是接收一个和Predicate函数对应Lambda表达式，返回一个布尔值，从流中过滤某些元素。<br><img src="https://user-gold-cdn.xitu.io/2019/7/22/16c1a2418a587f98?w=403&h=206&f=jpeg&s=26361" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ce5ccf0970d0?w=1464&h=1310&f=png&s=263394" alt></li>
-<li>Stream<code>&lt;T&gt;</code> sorted(Comparator&lt;? super T&gt; comparator):<br>指定比较规则进行排序。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ce00179fc96a?w=1464&h=1310&f=png&s=264409" alt></li>
-<li>Stream<code>&lt;T&gt;</code> limit(long maxSize):<br>截断流，使其元素不超过给定数量。如果元素的个数小于maxSize，那就获取所有元素。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ccc8ee241e40?w=403&h=205&f=jpeg&s=30573" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1cf0a4636351b?w=1572&h=1346&f=png&s=290113" alt></li>
-<li>Stream<code>&lt;T&gt;</code> skip(long n):<br>跳过元素，返回一个扔掉了前 n 个元素的流。若流中元素不足 n 个，则返回一个空流。与 limit(n) 互补。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ccc8eff0c379?w=403&h=205&f=jpeg&s=26993" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1cf3c9ddadd22?w=1724&h=1346&f=png&s=299965" alt></li>
-<li>Stream<code>&lt;R&gt;</code> map(Function&lt;? super T, ? extends R&gt; mapper)：<br>接收一个Function函数作为参数，该函数会被应用到每个元素上，并将其映射成一个新的元素。也就是转换操作，map还有三个应用于具体类型方法，分别是：mapToInt，mapToLong和mapToDouble。这三个方法也比较好理解，比如mapToInt就是把原始Stream转换成一个新的Stream，这个新生成的Stream中的元素都是int类型。这三个方法可以免除自动装箱/拆箱的额外消耗。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ccc8f03ae276?w=403&h=202&f=bmp&s=325678" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1cfdc901cae3f?w=1220&h=1454&f=png&s=269788" alt></li>
-<li>Stream<code>&lt;R&gt;</code> flatMap(Function&lt;? super T, ? extends Stream&lt;? extends R&gt;&gt; mapper)：<br>接收一个Function函数作为参数，将流中的每个值都转换成另一个流，然后把所有流连接成一个流。flatMap也有三个应用于具体类型的方法，分别是：flatMapToInt、flatMapToLong、flatMapToDouble，其作用于map的三个衍生方法相同。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ccc8f01d9be4?w=403&h=205&f=jpeg&s=30536" alt><br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1d233eb214db4?w=1870&h=2066&f=png&s=451994" alt></li>
-</ul>
-<h4 id="Stream的终端操作"><a href="#Stream的终端操作" class="headerlink" title="Stream的终端操作"></a>Stream的终端操作</h4><p>终端操作执行中间操作链，并返回结果。终端操作我们就不一一介绍了，只介绍一下常用的操作。详细可看java.util.stream.Stream接口中的方法。</p>
-<ul>
-<li>void forEach(Consumer&lt;? super T&gt; action):<br>内部迭代(需要用户去做迭代，称为外部迭代。相反，Stream API使用内部迭代帮你把迭代做了)<pre><code>users.stream().forEach(user -&gt; System.out.println(user.getName()));</code></pre></li>
-<li>&lt;R, A&gt; R collect(Collector&lt;? super T, A, R&gt; collector):<br>收集、将流转换为其他形式，比如转换成List、Set、Map。collect方法是用Collector作为参数，Collector接口中方法的实现决定了如何对流执行收集操作(如收集到 List、Set、Map)。但是 Collectors 实用类提供了很多静态方法，可以方便地创建常见收集器实例。例举一些常用的：<pre><code>List&lt;User&gt; users = Lists.newArrayList();
-users.add(new User(15, &quot;A&quot;, ImmutableList.of(&quot;1元&quot;, &quot;5元&quot;)));
-users.add(new User(25, &quot;B&quot;, ImmutableList.of(&quot;10元&quot;, &quot;50元&quot;)));
-users.add(new User(21, &quot;C&quot;, ImmutableList.of(&quot;100元&quot;)));
-//收集名称到List
-List&lt;String&gt; nameList = users.stream().map(User::getName).collect(Collectors.toList());
-//收集名称到List
-Set&lt;String&gt; nameSet = users.stream().map(User::getName).collect(Collectors.toSet());
-//收集到map,名字作为key,user对象作为value
-Map&lt;String, User&gt; userMap = users.stream()
-              .collect(Collectors.toMap(User::getName, Function.identity(), (k1, k2) -&gt; k2));</code></pre></li>
-<li>其他终端操作：<ol>
-<li>boolean allMatch(Predicate&lt;? super T&gt; predicate); 检查是否匹配所有元素。</li>
-<li>boolean anyMatch(Predicate&lt;? super T&gt; predicate); 检查是否至少匹配一个元素。</li>
-<li>boolean noneMatch(Predicate&lt;? super T&gt; predicate); 检查是否没有匹配所有元素。</li>
-<li>Optional<code>&lt;T&gt;</code> findFirst(); 返回当前流中的第一个元素。</li>
-<li>Optional<code>&lt;T&gt;</code> findAny(); 返回当前流中的任意元素。</li>
-<li>long count(); 返回流中元素总数。</li>
-<li>Optional<code>&lt;T&gt;</code> max(Comparator&lt;? super T&gt; comparator); 返回流中最大值。</li>
-<li>Optional<code>&lt;T&gt;</code> min(Comparator&lt;? super T&gt; comparator); 返回流中最小值。</li>
-<li>T reduce(T identity, BinaryOperator<code>&lt;T&gt;</code> accumulator); 可以将流中元素反复结合起来，得到一个值。 返回 T。这是一个归约操作。</li>
-</ol>
+<h4 id="3-2-如何分析时间复杂度"><a href="#3-2-如何分析时间复杂度" class="headerlink" title="3.2 如何分析时间复杂度"></a>3.2 如何分析时间复杂度</h4><ul>
+<li><p>$O(1)$</p>
+<pre><code>int i = 5;         /*执行一次*/
+int j = 6;         /*执行一次*/
+int sum = j + i;   /*执行一次*/</code></pre><p>这段代码的运行函数应该是$f(n)=3$ ,用来大O来表示的话应该是$O(f(n))=O(3)$ ,但是根据我们的推导大O表示法中的第一条，要用1代替函数中的常数，所以$O(3)=&gt;O(1)$,那么这段代码的时间复杂度就是$O(1)$而不是$O(3)$。</p>
+</li>
+<li><p>$O(logn)$</p>
+<pre><code>int count = 1;             /*执行一次*/
+int n = 100;               /*执行一次*/
+while (count &lt; n) {
+    count = count * 2;     /*执行多次*/
+}</code></pre><p>这段代码为什么是logn呢？只有当count小于n的时候才会执行，并且每次count都乘以2，所以由$2^{x}=n$ 得知</p>
+<p>$x=log_{2}n$ ,去掉底数所以这段代码的复杂性就是$O(logn)$ 。</p>
+</li>
+<li><p>$O(n)$ </p>
+<pre><code>for (int k = 0; k &lt; n; k++) {
+    System.out.println(k);   /*执行n次*/
+}</code></pre><p>这段代码的执行次数会随着n的增大而增大，也就是说会执行n次，所以他的时间复杂度就是O(n)。</p>
+</li>
+<li><p>$O(n^{2})$ </p>
+<pre><code>for (int k = 0; k &lt; n; k++) {
+   for (int l = 0; l &lt; n; l++) {
+      System.out.println(l);      /*执行了n*n次/
+   }
+}</code></pre><p>这段输出l的值得代码对于内循环来讲它执行了n次，但是每个内循环对于外循环来讲又被执行了n次，所以这个输出l值得代码就被执行了n乘n次，也就是$n^{2}$,所以这段代码的时间复杂度就是$O(n^{2})$ 。</p>
 </li>
 </ul>
-<h4 id="Fork-Join框架"><a href="#Fork-Join框架" class="headerlink" title="Fork/Join框架"></a>Fork/Join框架</h4><p>上面我们提到过，说Stream的并行模式使用了Fork/Join框架，这里简单说下Fork/Join框架是什么？Fork/Join框架是java7中加入的一个并行任务框架，可以将任务拆分为多个小任务，每个小任务执行完的结果在合并成为一个结果。在任务的执行过程中使用工作窃取（work-stealing）算法，减少线程之间的竞争。</p>
+<p><code>读到这里不知道大家学会了没有？其实分析一段代码的时间复杂度，就找到你代码中执行次数最多的地方，分析一下它的时间复杂度是什么，那么你整段代码的时间复杂度就是什么。以最大为准。</code></p>
+<h4 id="3-3-时间复杂度量级"><a href="#3-3-时间复杂度量级" class="headerlink" title="3.3 时间复杂度量级"></a>3.3 时间复杂度量级</h4><pre><code>    public int find(int[] arrays, int findValue) {
+        int result = -1;                                /*执行一次*/
+        int n = arrays.length;
+        for (int i = 0; i &lt; n; i++) {
+            if (arrays[i] == findValue) {               /*执行arrays.length次*/
+                result = arrays[i];
+                break;
+            }
+        }
+        return result;                                 /*执行一次*/
+    }</code></pre><p>我们来分析一下上边这个方法，这个方法的作用是从一个数组中查找到它想要的值。其实一个算法的复杂度还会根据实际的执行情况有一定的变化，就比如上边这段代码，假如数组的长度是100，里面存的是1-100的数。</p>
 <ul>
-<li>Fork/Join图解<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1e40b7eac4b89?w=800&h=426&f=png&s=85559" alt></li>
-<li>工作窃取图解<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1e414bbc9585b?w=844&h=294&f=png&s=82893" alt><h4 id="Stream是怎么实现的"><a href="#Stream是怎么实现的" class="headerlink" title="Stream是怎么实现的"></a>Stream是怎么实现的</h4>先看下整体类图:蓝色箭头代表继承，绿色箭头代表实现，红色箭头代表内部类。<br><img src="https://user-gold-cdn.xitu.io/2019/7/23/16c1ef0992b6e39c?w=982&h=854&f=png&s=760332" alt><br>实际上Stream只有两种操作，中间操作、终端操作，中间操作只是一种标记，只有终端操作才会实际触发执行。所以Stream流水线式的操作大致应该是用某种方式记录中间操作，只有调用终端操作才会将所有的中间操作叠加在一起在一次迭代中全部执行。这里只做简单的介绍，想详细了解的可以参考下面的参考资料中的链接。</li>
-<li>操作怎么记录？<br><br>Stream的操作记录是通过ReferencePipeline记录的，ReferencePipeline有三个内部类Head、StatelessOp、StatefulOp，Stream中使用Stage的概念来描述一个完整的操作，并用某种实例化后的ReferencePipeline来代表Stage，Head用于表示第一个Stage，即调用诸如Collection.stream()方法产生的Stage，很显然这个Stage里不包含任何操作，StatelessOp和StatefulOp分别表示无状态和有状态的Stage，对应于无状态和有状态的中间操作。<br><img src="https://user-gold-cdn.xitu.io/2019/7/24/16c1f94ee4740035?w=1000&h=265&f=png&s=37101" alt></li>
-<li>操作怎么叠加？<br><br>操作是记录完了，但是前面的Stage并不知道后面Stage到底执行了哪种操作，以及回调函数是哪种形式。这就需要有某种协议来协调相邻Stage之间的调用关系。<br>这种协议由Sink接口完成，Sink接口包含的方法如下表所示:</li>
+<li><p>最好情况时间复杂度</p>
+<p>如果我在这个数组里面查找数字1，那么在它第一次遍历的时候就找到了这个值，然后就执行<code>break</code>结束当前循环，此时所有的代码只执行了一次，属于<code>常数阶</code>$O(1)$，这就是最好情况下这段代码的时间复杂度。</p>
+</li>
+<li><p>最坏情况时间复杂度</p>
+<p>如果我在这个数组里面查找数字100，那么这个数组就要被遍历一边才能找到并返回，这样的话这个方法就要受到数组大小的影响了，如果数组的大小为n，那么就是n越大，执行次数越多。属于<code>线性阶</code>$O(n)$ ，这就是最坏情况下的时间复杂度。</p>
+</li>
+<li><p>平均情况时间复杂度</p>
+<p>我们都知道最好、最坏时间复杂度都是在两种极端情况下的代码复杂度，发生的概率并不高，因次我们引入另一个概念<code>“平均时间复杂度”</code>。我们还看上边的这个方法，要查找个一个数有n+1中情况：在数组0 ~ n-1的的位置中和不再数组中，所以我们将所有代码的执行次数累加起来((1+2+3+…+n)+n),然后再除以所有情况n(n+1),就得到需要执行次数的平均值了。</p>
+<p>$\frac{(1+2+3…+𝑛)+𝑛)}{(𝑛+1)} = \frac{𝑛(𝑛+3)}{2(𝑛+1)}$</p>
+<p><strong>推导过程：</strong></p>
+<p>🔥  $1+2+3…+𝑛=𝑛+(𝑛−1)+(𝑛−2)…+1$</p>
+<p>🔥  $(1+2+3…+𝑛)=\frac {𝑛(1+𝑛)}{2}$</p>
+<p>🔥  $(1+2+3…+𝑛)+𝑛= \frac {n(3+𝑛)}{2}$ </p>
+<p>大O表示法，会<strong>省略系数、低阶、常量，</strong>所以平均情况时间复杂度是<strong>O(n)</strong>。</p>
+</li>
 </ul>
-<ol>
-<li>void begin(long size)，开始遍历元素之前调用该方法，通知Sink做好准备。</li>
-<li>void end()，所有元素遍历完成之后调用，通知Sink没有更多的元素了。</li>
-<li>boolean cancellationRequested()，是否可以结束操作，可以让短路操作尽早结束。</li>
-<li>void accept(T t)，遍历元素时调用，接受一个待处理元素，并对元素进行处理。Stage把自己包含的操作和回调方法封装到该方法里，前一个Stage只需要调用当前Stage.accept(T t)方法就行了。<br></li>
+<p>  但是这个平均复杂度没有考虑各自情况的发生概率，这里的n+1个情况，它们的发生概率是不一样的，所以还需要引入各自情况发生的概率再具体分析。findValue要么在1<del>n中，要么不在1</del>n中，所以他们的概率都是$\frac{1}{2}$,同时数据在1<del>n中的各个位置的概率一样为$\frac{1}{n}$ ,根据概率乘法法则，findValue在1</del>n中的任意位置的概率是$\frac{1}{2n}$ ,因此在上边推导的基础上需要在加入概率的的发生情况。</p>
+<p>  <strong>考虑概率的平均情况复杂度为：</strong></p>
+<p>  $(1\frac{1}{2n}+2\frac{1}{2n}+3\frac{1}{2n}…+𝑛\frac{1}{2n})+𝑛\frac{1}{2}=\frac{3n+1}{4}$</p>
+<p>  <strong>推导过程：</strong></p>
+<p>  🔥  $(1+2+3…+𝑛)=\frac{𝑛(1+𝑛)}{2}$</p>
+<p>  🔥 $(1\frac{1}{2n}+2\frac{1}{2n}+3\frac{1}{2n}…+𝑛\frac{1}{2n}))=\frac{1}{2n}(1+2+3…+𝑛)=\frac{1}{2n}∗\frac{𝑛(1+𝑛)}{2}=\frac{1+𝑛}{4}$</p>
+<p>  🔥  $(1\frac{1}{2n}+2\frac{1}{2n}+3\frac{1}{2n}…+𝑛\frac{1}{2n}))+n\frac{1}{2}=\frac{1+𝑛}{4}+n\frac{1}{2}=\frac{3n+1}{4}$</p>
+<p>  这就是概率论中的加权平均值，也叫做期望值，所以平均时间复杂度全称叫：<strong>加权平均时间复杂度</strong>或者<strong>期望时间复杂度</strong>。平均复杂度变为$O(\frac{3n+1}{4})$，忽略系数及常量后，最终得到加权平均时间复杂度为$O(n)$。</p>
+<h3 id="4-空间复杂度"><a href="#4-空间复杂度" class="headerlink" title="4. 空间复杂度"></a>4. 空间复杂度</h3><p>算法的空间复杂度是对运行过程中临时占用存储空间大小的度量，算法空间复杂度的计算公式记作：$S(n) = O(f(n))$,n为问题规模，$f(n)$为语句关于n所占存储空间函数。由于空间复杂度和时间复杂度的大O表示法相同，所以我们就简单介绍下。</p>
+<p>常见的空间复杂度从低到高是：</p>
+<p>$O(1)$ &lt; $O(n)$ &lt; $O(n^{2})$ </p>
+<h4 id="4-1-如何分析空间复杂度"><a href="#4-1-如何分析空间复杂度" class="headerlink" title="4.1 如何分析空间复杂度"></a>4.1 如何分析空间复杂度</h4><ul>
+<li><p>$O(1)$</p>
+<pre><code>public static void intFun(int n) {
+   var intValue = n;
+   //...
+}</code></pre><p>当算发的存储空间大小固定，和输入的规模没有直接的关系时，空间复杂度就记作O(1),就像上边这个方法，不管你是输入10，还是100，它占用的内存都是4字节。</p>
+</li>
+<li><p>$O(n)$</p>
+<pre><code>public static void arrayFun(int n) {
+   var array = new int[n];
+   //...
+}</code></pre><p>当算法分配的空间是一个集合或者数组时，并且它的大小和输入规模n成正比时，此时空间复杂度记为$O(n)$。</p>
+</li>
+<li><p>$O(n^{2})$ </p>
+<pre><code>public static void matrixFun(int n) {
+   var matrix = new int[n][n];
+   //...
+}</code></pre><p>当算法分配的空间是一个二维数组，并且它的第一维度和第二维度的大小都和输入规模n成正比时，此时空间复杂度记为$O(n^{2})$ 。</p>
+</li>
+</ul>
+<h3 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h3><p>对于<code>时间</code>和<code>空间</code>的取舍，我们就要根据具体的业务实际情况而定，有的时候就需要牺牲时间来换空间，有的时候就需要牺牲空间来换时间，在现在这个计算机硬件性能飙升的时代，当然我们还是喜欢选择牺牲空间来换时间，毕竟内存还是有的，也不贵。并且可以提高效率给用户更好的体验。</p>
+<ul>
+<li><p>什么是时间复杂度？</p>
+<p>时间复杂度就是对算法运行时间长短的度量，用大O表示为$T(n) = O(f(n))$ 。常见的时间复杂度从低到高的顺序是：$O(1)$、$O(logn)$ 、$O(n)$、$O(nlogn)$、$O(n^{2})$ 。</p>
+</li>
+<li><p>什么是空间复杂度？</p>
+<p>空间复杂度是对算法运行时所占用的临时存储空间的度量，用大O标识为$S(n)= O(f(n))$ 。常见的空间复杂度从低到高的顺序是：$O(1)$ 、$O(n)$、$O(n^{2})$ 。</p>
+</li>
+</ul>
+<h3 id="6-参考"><a href="#6-参考" class="headerlink" title="6. 参考"></a>6. 参考</h3><ol>
+<li>《数据结构与算法分析》</li>
+<li>《大话数据结构》</li>
+<li>《漫画算法》</li>
 </ol>
-<p>每个Stage都会将自己的操作封装到一个Sink里，前一个Stage只需调用后一个Stage的accept()方法即可，并不需要知道其内部是如何处理的。有了Sink对操作的包装，Stage之间的调用问题就解决了，执行时只需要从流水线的head开始对数据源依次调用每个Stage对应的Sink.{begin(), accept(), cancellationRequested(), end()}方法就可以了。</p>
-<ul>
-<li>操作怎么执行？<br><img src="https://user-gold-cdn.xitu.io/2019/7/24/16c1fac591c62598?w=600&h=701&f=png&s=60869" alt><br>Sink完美封装了Stream每一步操作，并给出了[处理-&gt;转发]的模式来叠加操作。这一连串的齿轮已经咬合，就差最后一步拨动齿轮启动执行。是什么启动这一连串的操作呢？也许你已经想到了启动的原始动力就是结束操作(Terminal Operation)，一旦调用某个结束操作，就会触发整个流水线的执行。<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><a href="https://ifeve.com/stream" target="_blank" rel="noopener">https://ifeve.com/stream</a><br><br><a href="https://www.ibm.com/developerworks/cn/java/j-lo-java8streamapi/" target="_blank" rel="noopener">https://www.ibm.com/developerworks/cn/java/j-lo-java8streamapi/</a><br><br><a href="https://segmentfault.com/a/1190000016781127" target="_blank" rel="noopener">https://segmentfault.com/a/1190000016781127</a><br><br><a href="https://github.com/CarpenterLee/JavaLambdaInternals/blob/master/6-Stream%20Pipelines.md" target="_blank" rel="noopener">https://github.com/CarpenterLee/JavaLambdaInternals/blob/master/6-Stream%20Pipelines.md</a><br></li>
-</ul>
 <blockquote>
-<p>感谢大家的观看，希望多多关注哦。 如有错误，烦请指正。</p>
+<p>能看到这里的朋友，相信你也对学习保持着一定的热情，觉得对你有帮助的话麻烦点个赞或在看以资鼓励吧，有什么问题欢迎留言或者关注我公众号进群交流。另外文章有理解错误、写错、说错的地方，希望大家指正，这是对我最大的帮助，谢谢大家。</p>
 </blockquote>
 
             </div>
@@ -748,9 +835,9 @@ Map&lt;String, User&gt; userMap = users.stream()
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《「Java8系列」流式编程Stream》
+                    《手撕数据结构与算法开篇》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/04/java8-xi-lie-liu-shi-bian-cheng-stream/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/25/shou-si-shu-ju-jie-gou-yu-suan-fa-kai-pian/" property="cc:attributionName"
                rel="cc:attributionURL">
                 李晓双
             </a> 采用
@@ -791,7 +878,7 @@ Map&lt;String, User&gt; userMap = users.stream()
         repo: 'codeefficient.github.io',
         owner: 'Codeefficient',
         admin: "Codeefficient",
-        id: '2019/11/04/java8-xi-lie-liu-shi-bian-cheng-stream/',
+        id: '2019/11/25/shou-si-shu-ju-jie-gou-yu-suan-fa-kai-pian/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1074,50 +1161,51 @@ Map&lt;String, User&gt; userMap = users.stream()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="fa fa-dot-circle-o"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2019/11/05/gan-kuai-kan-kan-java11-bu-ran-ni-jiu-out-liao/">
+                <a href="/2019/11/25/shou-si-shu-ju-jie-gou-yu-suan-fa-kai-pian/">
                     <div class="card-image">
                         
-                        <img src="https://i.loli.net/2019/11/05/hSzblLG8gTKoCNt.jpg" class="responsive-img" alt="赶快看看Java11，不然你就out了">
+                        <img src="https://i.loli.net/2019/11/25/FHzyohEgGIRlMQP.jpg" class="responsive-img" alt="手撕数据结构与算法开篇">
                         
-                        <span class="card-title">赶快看看Java11，不然你就out了</span>
+                        <span class="card-title">手撕数据结构与算法开篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            为什么选择Java11
-容器环境支持，GC等领域的增强。
-进行了瘦身，更轻量级，安装包体积小。
-JDK11 是一个长期支持版。
-
-特性介绍由于直接从Java8跨越到Java11，所以特性介绍就把Java9-Java11的部分特性一起介绍一下
+                            1. 浪子回头2019年，这个不平凡的一年，中美贸易战、各个大厂裁员。造成了现在互联网行情不好，形势很严峻啊。有的人说今年是互联网过去十年中最差的一年，也可能是未来十年中最好的一年。身处这样乱世的我们怎么办？我也听很多朋友说，今年的面试都比
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-05
-                        </span>
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
+                            <a href="/categories/数据结构与算法/" class="post-category" target="_blank">
+                                    数据结构与算法
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Java11/" target="_blank">
-                        <span class="chip bg-color">Java11</span>
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
+                    </a>
+                    
+                    <a href="/tags/数据结构与算法/" target="_blank">
+                        <span class="chip bg-color">数据结构与算法</span>
                     </a>
                     
                 </div>
@@ -1131,30 +1219,31 @@ JDK11 是一个长期支持版。
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/03/java8-xi-lie-shen-qi-de-han-shu-shi-jie-kou/">
+                <a href="/2019/11/08/tong-yong-dian-zan-she-ji-si-lu/">
                     <div class="card-image">
                         
-                        <img src="https://img.ctolib.com/uploadImg/20190422/20190422084602_571.jpg" class="responsive-img" alt="「Java8系列」神奇的函数式接口">
+                        <img src="https://i.loli.net/2019/11/08/NOLydz5PvDYAIgV.jpg" class="responsive-img" alt="通用点赞设计思路">
                         
-                        <span class="card-title">「Java8系列」神奇的函数式接口</span>
+                        <span class="card-title">通用点赞设计思路</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言在上一篇Lambda的讲解中我们就提到过函数式接口，比如：Consumer&lt;String&gt; consumer = (s) -&gt; System.out.println(s);其中Consumer就是一个函数式接口。这里是
+                            点赞作为一个高频率的操作，如果每次操作都读写数据库会增加数据库的压力，所以采用缓存+定时任务来实现。点赞数据是在redis中缓存半小时，同时定时任务是每隔5分钟执行一次，做持久化存储，这里的缓存时间和任务执行时间可根据项目情况而定。
+优点1
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-03
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-08
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
+                            <a href="/categories/实战/" class="post-category" target="_blank">
+                                    实战
                                 </a>
                             
                             
@@ -1168,8 +1257,8 @@ JDK11 是一个长期支持版。
                         <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/Java8/" target="_blank">
-                        <span class="chip bg-color">Java8</span>
+                    <a href="/tags/Redis/" target="_blank">
+                        <span class="chip bg-color">Redis</span>
                     </a>
                     
                 </div>
