@@ -4,11 +4,20 @@
 
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="「Go学习笔记」2.Go语言由什么组成？, Java Go lixiaoshuang 后端 MySql Redis Spring SpringBoot SpringCloud MQ">
+    <meta name="keywords" content="手撕数据结构与算法-数组, Java Go lixiaoshuang 后端 MySql Redis Spring SpringBoot SpringCloud MQ">
     <meta name="baidu-site-verification" content>
     <meta name="google-site-verification" content>
     <meta name="360-site-verification" content>
-    <meta name="description" content="标识符Go语言标识符是用于标识变量、函数或任何用户自定义项目的名称（程序实体），这个标识符就类似java中的数据类型（基本数据类型、引用数据类型）。标识符有两种类别，一种是用户自定义的标识符，它作为程序的实体存在。另一种标识符成为预定义标识">
+    <meta name="description" content="前言
+开篇一张图，知识全靠吹！
+开篇点个赞，博主能上天！
+
+ 
+本系列文章已收录到github：
+
+手撕数据结构与算法
+
+1. 什么是数组？数组是数据结构中最简单、最常用的数据结构，是一种线性表数据结构，在内存中是一块连续的存储空间，是有限">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -16,7 +25,7 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <title>「Go学习笔记」2.Go语言由什么组成？ | 晓哥</title>
+    <title>手撕数据结构与算法-数组 | 晓哥</title>
     <link rel="icon" type="image/png" href="/blogicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
@@ -304,13 +313,13 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://i.loli.net/2019/10/30/SqL9tM5yQbB8afA.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://user-gold-cdn.xitu.io/2019/12/2/16ec42b715857f5d?imageView2/2/w/480/h/480/q/85/interlace/1')">
     <div class="container">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
                     <div class="description center-align post-title">
-                        「Go学习笔记」2.Go语言由什么组成？
+                        手撕数据结构与算法-数组
                     </div>
                 </div>
             </div>
@@ -421,8 +430,12 @@
                     
                     <div class="article-tag">
                         
-                        <a href="/tags/Go/" target="_blank">
-                            <span class="chip bg-color">Go</span>
+                        <a href="/tags/Java/" target="_blank">
+                            <span class="chip bg-color">Java</span>
+                        </a>
+                        
+                        <a href="/tags/数据结构与算法/" target="_blank">
+                            <span class="chip bg-color">数据结构与算法</span>
                         </a>
                         
                     </div>
@@ -433,8 +446,8 @@
                     <div class="post-cate">
                         <i class="fa fa-bookmark fa-fw icon-category"></i>
                         
-                        <a href="/categories/GO/" class="post-category" target="_blank">
-                            GO
+                        <a href="/categories/数据结构与算法/" class="post-category" target="_blank">
+                            数据结构与算法
                         </a>
                         
                     </div>
@@ -445,7 +458,7 @@
             <div class="post-info">
                 <div class="post-date info-break-policy">
                     <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2019-11-02
+                    2019-12-13
                 </div>
 
                 <div class="post-author info-break-policy">
@@ -459,14 +472,14 @@
                 
                 <div class="info-break-policy">
                     <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    649
+                    1.5k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    5 分
                 </div>
                 
                 
@@ -482,50 +495,72 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h3 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h3><p>Go语言标识符是用于标识变量、函数或任何用户自定义项目的名称（程序实体），这个标识符就类似java中的数据类型（基本数据类型、引用数据类型）。标识符有两种类别，一种是用户自定义的标识符，它作为程序的实体存在。另一种标识符成为预定义标识符，是Go语言源代码中声明的。例如：</p>
-<ol>
-<li><p>数据类型</p>
-<p>bool（true和false）、byte、uint、uint8、uint16、uint32、uint64、int、int8、int16、int32、int64、float32、float64、string、uintptr。</p>
-</li>
-<li><p>内建函数名</p>
-<p>append、cap、close、complex、copy、delete、imag、len、make、new、panic、print、println、real、recover。</p>
-</li>
-<li><p>其他标识符</p>
-<p>iota、nil、_ 。</p>
-<p>最后一个_叫做空标识符，一般用在变量声明与包的导入中，类似Java中的null。</p>
-</li>
-</ol>
-<h3 id="关键字"><a href="#关键字" class="headerlink" title="关键字"></a>关键字</h3><p>Go语言作为一门静态编译型语言，它的关键字一共有25个，相比他语言显得非常少，java关键字就有50个，不过感觉Go语言的关键字少的原因也是因为它把数据类型和关键字分开了，数据类型叫做标识符了，下面是Go语言的25个关键字</p>
-<ol>
-<li><p>包导入与声明</p>
-<p>import、package。</p>
-</li>
-<li><p>程序实体声明与定义</p>
-<p>var、type、func、interface、map、struct、chan、const。</p>
-</li>
-<li><p>流程控制</p>
-<p>if、continue、for、return、go、case、goto、switch、select、clse、break、default、defer、fallthrough、range。</p>
-</li>
-</ol>
-<h3 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h3><p>字面量就是表示值得一种标记法，在Go语言中，字面量的含义要更广一些，首先，它用于表示基础数据类型的各种字面量，其次用于标识用户构造的自定义复合数据类型的字面量，最后它还用于标识复合数据类型的值的复合字面量，简单来说它会被用来构造Struct（结构体）、Array（数组）、Slice（切片）和Map（字典）的值。</p>
-<p>例如：</p>
-<pre class="line-numbers language-go"><code class="language-go"><span class="token keyword">const</span> b <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">10</span> <span class="token comment" spellcheck="true">//b为常量，10为字面量</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="分隔符"><a href="#分隔符" class="headerlink" title="分隔符"></a>分隔符</h3><p>分隔符用来分隔Go语言中的元素，例如：</p>
-<pre class="line-numbers language-go"><code class="language-go">fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">"Hello ，World"</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>分隔符包括括号、中括号、大括号、小数点、逗号、分号、冒号、省略号。Go语言不需要像java那样每行代码都要以分号（;）结尾。</p>
-<h3 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h3><p>运算符是用来执行运算或逻辑操作的符号，Go语言中的运算符如下图所示</p>
-<ol>
-<li>运算符<br><img src="https://user-gold-cdn.xitu.io/2019/10/19/16de344d04dffd76?w=1460&h=1002&f=png&s=1362101" alt><br><img src="https://user-gold-cdn.xitu.io/2019/10/19/16de344fb5ae925c?w=1460&h=268&f=png&s=245596" alt></li>
-<li>运算符优先级：<br><img src="https://user-gold-cdn.xitu.io/2019/10/19/16de34450aea1678?w=998&h=381&f=png&s=23293" alt><h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3>Go语言中的注释有多种写法和Java差不多。<pre class="line-numbers language-go"><code class="language-go"><span class="token comment" spellcheck="true">// 单行注释</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-go"><code class="language-go"><span class="token comment" spellcheck="true">/*这是一条Go注释*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<pre class="line-numbers language-go"><code class="language-go"><span class="token comment" spellcheck="true">/*
-这是一段Go注释
-*/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p>感谢大家的观看，希望多多关注哦。 如有错误，烦请指正。</p>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><blockquote>
+<p>开篇一张图，知识全靠吹！</p>
+<p>开篇点个赞，博主能上天！</p>
 </blockquote>
+<p> <img src="https://i.loli.net/2019/11/25/EvK4mpuixgl89I6.png" alt></p>
+<p><strong>本系列文章已收录到github：</strong></p>
+<ul>
+<li><a href="https://github.com/CodeGeekLee/data-structures-and-algorithms" target="_blank" rel="noopener">手撕数据结构与算法</a></li>
+</ul>
+<h2 id="1-什么是数组？"><a href="#1-什么是数组？" class="headerlink" title="1. 什么是数组？"></a>1. 什么是数组？</h2><p>数组是数据结构中<code>最简单</code>、<code>最常用</code>的数据结构，是一种线性表数据结构，在内存中是一块<code>连续</code>的存储空间，是有限个<code>相同类型</code>变量所组成的<code>有序集合</code>。数组中的每一个变量叫做<code>元素</code>。</p>
+<blockquote>
+<p>线性表：线性表从字面意义上来理解是数据的排列像一条线的结构，只有前后两个方向。线性表中的元素都是一对一的关系，除了首尾元素外，其他元素都是首尾相连的。除了数组，链表、队列、栈也是线性表结构的。</p>
+</blockquote>
+<p>以整型数组为例，我们new一个整型数组<code>int[] array = new int[]{1,2,3,4};</code>，数组内的元素存储的元素是1、2、3、4。那么数组的存储形势就如下图：</p>
+<p>  <img src="https://i.loli.net/2019/11/30/Q3PuZyrgFpCiIaB.png" alt="数组图解.png"></p>
+<p>在上图中<code>粉色</code>的格子代表已经被占用了的存储单元，<code>绿色</code>的格子代表数组的存储位置，<code>白色</code>的格子代表空闲的存储单元。数组的下标是从0开始的。所以元素和下标的对应关系是：</p>
+<p> <img src="https://i.loli.net/2019/11/30/ypVgOr35hamS8D9.png" alt></p>
+<h2 id="2-数组的优缺点"><a href="#2-数组的优缺点" class="headerlink" title="2. 数组的优缺点"></a>2. 数组的优缺点</h2><p>谈起数组的优点，我相信大部分的人都会说<code>随机访问</code>这个堪称杀手锏的特性，那么它为什么能够做到随机访问呢？</p>
+<p>我认为主要有两点：</p>
+<ul>
+<li>连续的存储空间</li>
+<li>线性表结构</li>
+</ul>
+<p>正因为它是在内存中是一块连续的存储空间，并且是线性表结构，前后元素都是一一对应的，所以才能够让他拥有随机访问的特性。在上一篇文章<a href="https://mp.weixin.qq.com/s/sWpbqEWHCZCimjRcy2pMKw" target="_blank" rel="noopener">数据结构与算法-开篇</a>当中我们介绍了时间复杂度和空间复杂度，这里就不对说了，比如我们要查找上边的数组中的第三个元素，那么打印出<code>array[2]</code>就能够获取到第三个元素值，这里输出的是3，因为数组支持随机访问，所以根据下标随机访问的时间复杂度为<code>O(1)</code>，因为它的查找操作只执行了一次。</p>
+<p>这样的结构使它的查询操作非常的方便，有利也有弊，它的插入、删除操作就会变得低效，因为要保证数据的连续性，所以执行插入、删除操作就需要做大量的数据搬移工作。如果这个时候一个数组的随机访问正好访问到没有值得下标上就会获取不到值。如果不搬移数据将中间的空洞补充上，那么内存就不连续了。我们在数组的操作中在详细介绍。</p>
+<h2 id="3-数组的基本操作"><a href="#3-数组的基本操作" class="headerlink" title="3. 数组的基本操作"></a>3. 数组的基本操作</h2><h3 id="3-1-添加元素"><a href="#3-1-添加元素" class="headerlink" title="3.1 添加元素"></a>3.1 添加元素</h3><ul>
+<li><p><strong>中间插入</strong></p>
+<p>中间插入稍微复杂一些，每个元素都有自己的下标，如果一个元素想要插入到数组的中的除首尾的位置，那么插入的该位置上的元素都要向后移动，给新的位置腾出空间，保证连续性。</p>
+<p> <img src="https://s2.ax1x.com/2019/11/30/QZM4nx.png" alt></p>
 </li>
-</ol>
+</ul>
+<p>   <img src="https://s2.ax1x.com/2019/11/30/QZtetx.png" alt></p>
+<ul>
+<li><p><strong>尾部插入</strong></p>
+<p>尾部插入这种情况比较简单，直接把元素放到数组尾部的空闲位置即可，等同于更新元素的操作。</p>
+<p><img src="https://s2.ax1x.com/2019/11/30/QZlULq.png" alt></p>
+<p><img src="https://s2.ax1x.com/2019/11/30/QZJyrj.png" alt="QZJyrj.png"></p>
+</li>
+</ul>
+<p>​      </p>
+<h3 id="3-2-删除元素"><a href="#3-2-删除元素" class="headerlink" title="3.2 删除元素"></a>3.2 删除元素</h3><p>删除操作和插入操作的过程正好相反，如果删除的元素在数组的中间，那么其后的元素都要向前移动。</p>
+<p> <img src="https://s2.ax1x.com/2019/11/30/QZNRII.png" alt="QZNRII.png"></p>
+<p>  <img src="https://s2.ax1x.com/2019/11/30/QZNqds.png" alt="QZNqds.png"></p>
+<h3 id="3-3-更新元素"><a href="#3-3-更新元素" class="headerlink" title="3.3 更新元素"></a>3.3 更新元素</h3><p>​    <img src="https://i.loli.net/2019/11/30/kbqy2ualjm4ZSRr.png" alt="carbon (1).png"></p>
+<blockquote>
+<p>这里更新元素的时间复杂度为<code>O(1)</code>。</p>
+</blockquote>
+<h3 id="3-4-读取元素"><a href="#3-4-读取元素" class="headerlink" title="3.4 读取元素"></a>3.4 读取元素</h3><p> <img src="https://i.loli.net/2019/11/30/3qtLAzoUmJfvyjZ.png" alt="carbon.png"></p>
+<blockquote>
+<p>这里读元素的时间复杂度为<code>O(1)</code>。</p>
+</blockquote>
+<h2 id="4-容器能够代替数组吗？"><a href="#4-容器能够代替数组吗？" class="headerlink" title="4. 容器能够代替数组吗？"></a>4. 容器能够代替数组吗？</h2><p>针对数组类型，很多语言都提供了容器类，例如Java的List，如果你是一个Java程序员，那么你应该清楚ArrayList，对它应该非常的熟悉，和数组对比它有哪些优势呢？为什么开发的过程中经常使用它，最大的优势就是封装了对数组的操作，例如前面说的插入和删除，如果使用ArrayList还有一个优势是它支持动态扩容，当容器不够大的时候会自动扩容1.5倍，我们完全不需要关心底层的实现逻辑。那么什么时候使用数组更合适呢？有一下几点：</p>
+<ul>
+<li>ArrayList无法存储基本数据类型，例如int、long需要封装为Integer、Long。这里的装箱、拆箱操作有一定的性能损耗，如果特别关注性能，希望使用基本类型，那么就可以选择数组。</li>
+<li>对数据只是简单的存储操作，那么选择数组效率更好些。</li>
+<li>当做一些底层开发的时候数组可能用的比较多，比如一些框架。都是比较要求性能的。</li>
+</ul>
+<h2 id="5-参考"><a href="#5-参考" class="headerlink" title="5. 参考"></a>5. 参考</h2><p>《漫画算法》</p>
+<p>《数据结构与算法之美》</p>
+<h2 id="6-结尾求关注环节"><a href="#6-结尾求关注环节" class="headerlink" title="6.结尾求关注环节"></a>6.结尾求关注环节</h2><p>在我看来后端程序员应该学的有三大基础知识<code>&quot;数据结构与算法&quot;</code>、<code>&quot;计算机系统&quot;</code>、<code>&quot;操作系统Linux&quot;</code>。在这个互联网寒冬时代，是不是我们的衣服穿得不够多？彻夜难眠的我（<code>纯属扯淡，哈哈</code>）决定带领大家一起学习三大基础知识，本次开篇系列是《手撕数据结构与算法》，每一个系列更完就会开启下一个系列，大家不要着急。可以关注我的公众号，持续追更、持续学习。</p>
+<p><code>注意、注意 前方高能======&gt;</code></p>
+<blockquote>
+<p>如果你对我的这个系列感兴趣可以关注我的公众号，带你走上”超神之路、拿高薪offer、当上技术专家、出任个大厂、迎娶<a href="https://baike.baidu.com/item/白富美/9462281" target="_blank" rel="noopener">白富美</a>、走上人生巅峰，想想还有点小激动。” (哈哈，请允许我吹个🐂)</p>
+<p>来了  来了  他来了  他带着二维码来了！！！</p>
+<p><img src="https://i.loli.net/2019/11/24/fXyOTLCBcGMNKoj.png" alt="欢迎扫码关注哦！！！"></p>
+</blockquote>
 
             </div>
             <hr />
@@ -684,9 +719,9 @@
             <br/>
             <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text"
                   property="dct:title" rel="dct:type">
-                    《「Go学习笔记」2.Go语言由什么组成？》
+                    《手撕数据结构与算法-数组》
                 </span> 由
-            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/11/02/go-xue-xi-bi-ji-2-go-yu-yan-you-shi-me-zu-cheng/" property="cc:attributionName"
+            <a xmlns:cc="http://creativecommons.org/ns#" href="/2019/12/13/shou-si-shu-ju-jie-gou-yu-suan-fa-shu-zu/" property="cc:attributionName"
                rel="cc:attributionURL">
                 晓哥
             </a> 采用
@@ -727,7 +762,7 @@
         repo: 'codeefficient.github.io',
         owner: 'Codeefficient',
         admin: "Codeefficient",
-        id: '2019/11/02/go-xue-xi-bi-ji-2-go-yu-yan-you-shi-me-zu-cheng/',
+        id: '2019/12/13/shou-si-shu-ju-jie-gou-yu-suan-fa-shu-zu/',
         distractionFreeMode: false  // Facebook-like distraction free mode
     });
 
@@ -1014,30 +1049,38 @@
             <div class="article-badge left-badge text-color">
                 <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2019/11/03/java8-xi-lie-shen-qi-de-han-shu-shi-jie-kou/">
+                <a href="/2019/12/13/shou-si-shu-ju-jie-gou-yu-suan-fa-lian-biao/">
                     <div class="card-image">
                         
-                        <img src="https://img.ctolib.com/uploadImg/20190422/20190422084602_571.jpg" class="responsive-img" alt="「Java8系列」神奇的函数式接口">
+                        <img src="https://user-gold-cdn.xitu.io/2019/12/9/16eeb51df3081a2d?imageView2/2/w/480/h/480/q/85/interlace/1" class="responsive-img" alt="手撕数据结构与算法-链表">
                         
-                        <span class="card-title">「Java8系列」神奇的函数式接口</span>
+                        <span class="card-title">手撕数据结构与算法-链表</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            前言在上一篇Lambda的讲解中我们就提到过函数式接口，比如：Consumer&lt;String&gt; consumer = (s) -&gt; System.out.println(s);其中Consumer就是一个函数式接口。这里是
+                            前言
+底层基础决定上层发展。
+点个赞在看，让我知道你在关注技术。
+本系列文章Github 后端进阶指南  已收录，此项目正在完善中，欢迎star。
+
+本系列内容预览：
+
+1. 什么是链表？
+链表也是线性表中的一种，数组是线性表中的顺序结构，
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-03
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-12-13
                         </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Java/" class="post-category" target="_blank">
-                                    Java
+                            <a href="/categories/数据结构与算法/" class="post-category" target="_blank">
+                                    数据结构与算法
                                 </a>
                             
                             
@@ -1051,8 +1094,8 @@
                         <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/Java8/" target="_blank">
-                        <span class="chip bg-color">Java8</span>
+                    <a href="/tags/数据结构与算法/" target="_blank">
+                        <span class="chip bg-color">数据结构与算法</span>
                     </a>
                     
                 </div>
@@ -1066,36 +1109,30 @@
                 下一篇&nbsp;<i class="fa fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2019/11/01/junit4-jiao-cheng-shi-jian/">
+                <a href="/2019/11/25/shou-si-shu-ju-jie-gou-yu-suan-fa-kai-pian/">
                     <div class="card-image">
                         
-                        <img src="https://i.loli.net/2019/11/05/vmx4fjdHlSrtegZ.jpg" class="responsive-img" alt="JUnit4教程+实践">
+                        <img src="https://i.loli.net/2019/11/25/FHzyohEgGIRlMQP.jpg" class="responsive-img" alt="手撕数据结构与算法-开篇">
                         
-                        <span class="card-title">JUnit4教程+实践</span>
+                        <span class="card-title">手撕数据结构与算法-开篇</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-一、什么是JUnit？JUnit是Java编程语言的单元测试框架，用于编写和可重复运行的自动化测试。
-二、JUnit特点：
-JUnit 是一个开放的资源框架，用于编写和运行测试。 
-提供注解来识别测试方法。
-提供断言来测试预期结果。 
-J
+                            1. 浪子回头2019年，这个不平凡的一年，中美贸易战、各个大厂裁员。造成了现在互联网行情不好，形势很严峻啊。有的人说今年是互联网过去十年中最差的一年，也可能是未来十年中最好的一年。身处这样乱世的我们怎么办？我也听很多朋友说，今年的面试都比
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-01
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-11-25
                             </span>
                         <span class="publish-author">
                             
                             <i class="fa fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/测试/" class="post-category" target="_blank">
-                                    测试
+                            <a href="/categories/数据结构与算法/" class="post-category" target="_blank">
+                                    数据结构与算法
                                 </a>
                             
                             
@@ -1105,12 +1142,12 @@ J
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/JUnit4/" target="_blank">
-                        <span class="chip bg-color">JUnit4</span>
+                    <a href="/tags/Java/" target="_blank">
+                        <span class="chip bg-color">Java</span>
                     </a>
                     
-                    <a href="/tags/单元测试/" target="_blank">
-                        <span class="chip bg-color">单元测试</span>
+                    <a href="/tags/数据结构与算法/" target="_blank">
+                        <span class="chip bg-color">数据结构与算法</span>
                     </a>
                     
                 </div>
