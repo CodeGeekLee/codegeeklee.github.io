@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>晓哥</title>
+  <title>双哥的小窝</title>
   
-  <subtitle>晓哥</subtitle>
+  <subtitle>双哥的小窝</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://godweiyang.com/"/>
@@ -10,7 +10,7 @@
   <id>https://godweiyang.com/</id>
   
   <author>
-    <name>晓哥</name>
+    <name>双哥</name>
     
   </author>
   
